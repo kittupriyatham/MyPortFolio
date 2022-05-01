@@ -1,0 +1,226 @@
+ <!DOCTYPE html>
+ <html lang="en" dir="ltr">
+   <head>
+     <meta charset="utf-8">
+     <title>My Acheivements</title>
+      <link rel="stylesheet" href="../static/stylesheets/styles.css">
+      <link rel="icon"  href="../static/images/achievements_pics/favicon.io.png">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+     <style>
+      body{
+        background-color: black;
+        margin:0;
+        padding:1px;
+          font-family: poppins, serif;
+      }
+      ul{
+        list-style:none;
+      }
+      a{
+        text-decoration:none;
+      }
+      section{
+        width:0;
+        height:0;
+        background-image:url("../static/images/bg.jpg");
+        background-reapeat:no-reapeat;
+        background-size: cover;
+      }
+      nav {
+      	display: flex;
+      	justify-content: space-between;
+      	align-items:center;
+      	height:60px;
+      	background-color:#ffffff;
+      	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+      	padding:0 5%;
+      }
+      nav ul{
+      	display: flex;
+      }
+      nav ul li a{
+      	margin:30px;
+          font-family: myriad pro regular, serif;
+      	color:#505050;
+      	font-size: 15px;
+      	font-weight:700;
+      }
+      .logo{
+          font-family: RoadTest, serif;
+      	color:#000000;
+      	font-size: 22px;
+      }
+      .active{
+      	color:#2d2a2a;
+      	font-weight:bold;
+      }
+      * {
+     box-sizing: border-box;
+    }
+      .slider {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding-top:45px;
+}
+
+.slides {
+  display: block;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slide {
+        text-align: center;
+        display: block;
+      }
+      * {
+        box-sizing: border-box;
+      }
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 850px;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+/*   transform: scale(0.8); */
+}
+.author-info {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+.author-info a {
+  color: white;
+}
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+.slider > a:active {
+  top: 1px;
+}
+.slider > a:focus {
+  background: #000;
+}
+
+/* Don't need button navigation */
+@supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+}
+
+
+      </style>
+   </head>
+<body>
+  <nav>
+     <a href="/home" class="logo">Krishna Priyatham Potluri</a>
+     <ul>
+       <li><a class="nav-link js-scroll-trigger" href="/home" >Home</a></li>
+         <li><a class="nav-link js-scroll-trigger" href="/blog" >Blog</a></li>
+       <li><a class="nav-link js-scroll-trigger" href="/home#about" >About</a></li>
+       <li><a class="nav-link js-scroll-trigger" href="/skills" >Skills</a></li>
+       <li><a class="nav-link js-scroll-trigger" href="/resume">Resume</a></li>
+       <li><a class="nav-link js-scroll-trigger" href="/achievements" >Achievements</a></li>
+         <li><a class="nav-link js-scroll-trigger" href="/projects" >Projects</a></li>
+       <li><a class="nav-link js-scroll-trigger" href="/contact" >Contact</a></li>
+     </ul>
+    </nav>
+<div class="slider" >
+  <div class="slides container">
+  <div class="slide" id="slide-1"> <img src="../static/images/achievements_pics/1.png" alt="" style="width:100%;"></div>
+  <br>
+  <br>
+  <div class="slide" id="slide-2"> <img src="../static/images/achievements_pics/2.png" alt="" style="width:100%;"></div>
+  <br>
+<br>
+<div class="slide" id="slide-3"> <img src="../static/images/achievements_pics/3.png" alt="" style="width:100%;"></div>
+<br>
+<br>
+  <div class="slide" id="slide-4"> <img src="../static/images/achievements_pics/4.png" alt=" " style="width:100%;"></div>
+  <br>
+  <br>
+<div class="slide" id="slide-5"> <img src="../static/images/achievements_pics/5.png" alt="" style="width:100%;"></div>
+<br>
+  <br>
+  <div class="slide" id="slide-6"><img src="../static/images/achievements_pics/6.png" alt="" style="width:100%;"></div>
+  <br>
+<br>
+  <div class="slide" id="slide-7"><img src="../static/images/achievements_pics/7.png" alt="" style="width:100%;"></div>
+  <br>
+<br>
+  <div class="slide" id="slide-8"><img src="../static/images/achievements_pics/8.png" alt="" style="width:100%;"></div>
+  <br>
+  <br>
+  <div class="slide" id="slide-9"><img src="../static/images/achievements_pics/9.png" alt="" style="width:100%;"></div>
+  <br>
+  <br>
+  <div class="slide" id="slide-10"><img src="../static/images/achievements_pics/10.png" alt="" style="width:100%;"></div>
+  <br>
+  <br>
+</div>
+</div>
+  </body>
+</html>
