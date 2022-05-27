@@ -101,7 +101,7 @@
     top: 225px;
     bottom: 500px;
 	width:80%;
-	height:1100px;
+	height:2000px;
 	background:#ffffff;
 	border-radius:20px;
 	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
@@ -111,7 +111,23 @@
 	justify-content:space-evenly;
 	{#align-items: center;#}
 }
-
+.about-text-2{
+    position: absolute;
+    left: 400px;
+    top: 100px;
+}
+.about-text-heading-2{
+    position: absolute;
+    left: 50px;
+    right: -300px;
+    top: 0;
+}
+.about-text-list{
+    position: absolute;
+    left: -300px;
+    right: -500px;
+    top: 80px;
+}
 .footer-container{
     position: relative;
     top: 225px;
@@ -142,8 +158,12 @@
 	left:50%;
 	transform: translateX(-50%);
 }
-.ul{
+.li{
     list-style:disc;
+    {#font-weight: bold;#}
+}
+.ul{
+    font-weight: bolder;
 }
     </style>
   </head>
@@ -167,10 +187,9 @@
            <img src="../static/images/190050110.jpg" alt="mypic"/>
 <!--about-me-text-->
               <div class="about-text">
-              <p>About Me</p>
-              <p>Hello, I am Krishna Priyatham Potluri</p>
-                  <p>I am a CSE undergraduate having an interest in diverse fields</p>
-                  <p>like Data Science, AI, Cloud Computing, Quantum Science etc.</p>
+              <p>Hello, I am Krishna Priyatham Potluri</p> <br>
+                  <p>A Computer Science undergraduate having an interest in diverse </p>
+                  <p>fields like Data Science, AI, Cloud Computing, Quantum Science etc.</p>
                   <p>and in some engineering applications like drone building,</p>
                   <p>Robot making, IoT, 3D printing, etc. and many more.</p>
                   <p>I have learnt C, Java, Python. I am well proficient in English,</p>
@@ -182,63 +201,65 @@
   </div>
   <div class="about-container-2" id ="about">
       <div class="about-text-2">
-      <h4 class="about-text-heading-2">About Me</h4>
-          <ul class="ul">
-              <li>Education :</li>
-              <ul class="ul">
-                  <li><div>B.Tech at K L University<br> Computer Science And Engineering <br> cgpa: 7.86</div></li> <br>
-                  <li><div>B.Tech at National Institute of Technology <br> Food Process Engineering <br> Terminated </div></li> <br>
-                  <li><div>Intermediate at Narayana Jr College <br> MPC <br> marks: 868/1000</div></li> <br>
-                  <li><div>Schooling at Viswabharati [E.M] High School <br> general studies <br> cgpa: 9.2</div></li>
-              </ul>
-              <li>Skills :</li>
-              <ul class="ul">
-                  <li>Languages</li>
-                        <ul class="ul">
-                            <li>C</li>
-                            <li>C++</li>
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                        </ul>
-                  <li>Libraries and Frameworks</li>
-                        <ul class="ul">
-                            <li>Flask</li>
-                            <li>Pandas</li>
-                            <li>Numpy</li>
-                        </ul>
-                  <li>Databases</li>
-                        <ul class="ul">
-                            <li>MySQL</li>
-                        </ul>
-              </ul>
-              <li>Projects :</li>
-              <ul class="ul">
-                  <li>Array Manipulation in C</li> <br>
-                  <li>3D Modelling of Revolver MG 31 DS</li> <br>
-                  <li>IRIS FLOWER CLASSIFICATION</li> <br>
-              </ul>
-              <li>Experiences</li>
-              <ul class="ul">
-                  <li>Significant roles at my college</li>
-                  <ul class="ul">
-                      <li><div>Student Peer Mentor <br> MAY ’21 – Present (12 M)</div></li> <br>
-                      <li><div>Student Member of CSE IRP CELL <br>  OCT ’20 – MAY ’21 (8 M)</div></li> <br>
+      <h1 class="about-text-heading-2">About Me</h1>
+          <div class="about-text-list">
+              <ul>
+                  <li class="ul"><h3>Education :</h3></li> <br>
+                  <ul>
+                      <li class="li"><div>B.Tech at K L University<br> Computer Science And Engineering <br> cgpa: 7.86</div></li> <br>
+                      <li class="li"><div>B.Tech at National Institute of Technology <br> Food Process Engineering <br> Terminated </div></li> <br>
+                      <li class="li"><div>Intermediate at Narayana Jr College <br> MPC <br> marks: 868/1000</div></li> <br>
+                      <li class="li"><div>Schooling at Viswabharati [E.M] High School <br> general studies <br> cgpa: 9.2</div></li> <br>
                   </ul>
-                  <li>Internships</li>
-                  <ul class="ul">
-                      <li><div>Internship Trainee at Indian Servers <br> JUN ’21 – AUG ’21 (3 M)</div></li>
-                      <li><div>Internshala Student Partner at Intenrshala <br> MAY ’20 – AUG ’20 (4 M)</div></li>
+                  <li class="ul"><h4>Skills :</h4></li> <br>
+                  <ul>
+                      <li class="ul"><h5>Languages</h5></li> <br>
+                            <ul>
+                                <li class="li">C</li> <br>
+                                <li class="li">C++</li> <br>
+                                <li class="li">Java</li> <br>
+                                <li class="li">Python</li> <br>
+                                <li class="li">HTML</li> <br>
+                                <li class="li">CSS</li> <br>
+                                <li class="li">JavaScript</li> <br>
+                            </ul>
+                      <li class="ul"><h5>Libraries and Frameworks</h5></li> <br>
+                            <ul>
+                                <li class="li">Flask</li> <br>
+                                <li class="li">Pandas</li> <br>
+                                <li class="li">Numpy</li> <br>
+                            </ul>
+                      <li class="ul"><h5>Databases</h5></li> <br>
+                            <ul>
+                                <li class="li">MySQL</li> <br>
+                            </ul>
+                  </ul>
+                  <li class="ul"><h4>Projects :</h4></li> <br>
+                  <ul>
+                      <li class="li">Array Manipulation in C</li> <br>
+                      <li class="li">3D Modelling of Revolver MG 31 DS</li> <br>
+                      <li class="li">IRIS FLOWER CLASSIFICATION</li> <br>
+                  </ul>
+                  <li class="ul"><h4>Experiences</h4></li> <br>
+                  <ul>
+                      <li class="ul"><h5>Significant roles at my college</h5></li> <br>
+                      <ul>
+                          <li class="li"><div>Student Peer Mentor <br> MAY ’21 – Present (12 M)</div></li> <br>
+                          <li class="li"><div>Student Member of CSE IRP CELL <br>  OCT ’20 – MAY ’21 (8 M)</div></li> <br>
+                      </ul>
+                      <li class="ul"><h5>Internships</h5></li> <br>
+                      <ul>
+                          <li class="li"><div>Internship Trainee at Indian Servers <br> JUN ’21 – AUG ’21 (3 M)</div></li> <br>
+                          <li class="li"><div>Internshala Student Partner at Intenrshala <br> MAY ’20 – AUG ’20 (4 M)</div></li> <br>
+                      </ul>
                   </ul>
               </ul>
-          </ul>
+          </div>
       </div>
   </div>
   <div class="footer-container" id ="footer">
               <div class="footer-text">
-              <p class="copyright">Copyright &copy; 2019 Krishna Priyatham Potluri</p>
+              <p class="copyright">Copyright &copy; 2022 Krishna Priyatham Potluri</p>
                   <p class="copyright2">All Rights Reserved</p>
               </div>
 
