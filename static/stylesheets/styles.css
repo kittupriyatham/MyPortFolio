@@ -143,6 +143,15 @@ button:active{
 	height:600px;
 	background-color:#ffffff;
 	padding: 2% 10% 0 10%;
+	border-radius:20px;
+	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+}
+.services2 {
+	height: 600px;
+	background-color: #ffffff;
+	padding: 2% 10% 0 10%;
+	border-radius: 20px;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 .services-text p:nth-child(1){
 	font-family: calibri,serif;
@@ -186,23 +195,23 @@ font-size: 15px ;}
 }
 
 .box-1{
-	background-image:url("../images/achievements_pics/blog1.png");
+	background-image:url("../images/blogs and projects/blog1.png");
 }
 .box-2{
-	background-image:url("../images/achievements_pics/blog2.png");
+	background-image:url("../images/blogs and projects/blog2.png");
 }
 .box-3{
-	background-image: url("../images/achievements_pics/blog3.png");
+	background-image: url("../images/blogs and projects/blog3.png");
 }
 
 .box-21{
-	background-image:url("../images/achievements_pics/project1.jpg");
+	background-image:url("../images/blogs and projects/project1.jpg");
 }
 .box-22{
-	background-image:url("../images/achievements_pics/project2.jpg");
+	background-image:url("../images/blogs and projects/project2.jpg");
 }
 .box-23{
-	background-image: url("../images/achievements_pics/project3.jpg");
+	background-image: url("../images/blogs and projects/project3.jpg");
 }
 
 .box-1 span,
@@ -257,12 +266,14 @@ font-size: 15px ;}
 	height:280px;
 	background-size:cover;
 	background-repeat:no-repeat;
-	background-image: url("../images/mee2.jpg");
+	background-image: url("../images/bg2.jpg");
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 0 0 20px 0;
+	border-radius: 20px;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 .contact-me p{
 	color:#FFFFFF;
@@ -280,27 +291,31 @@ font-size: 15px ;}
 	font-size:14px;
 	font-weight:bold;
 }
-footer p{
-	font-family: calibri,serif;
-}
-footer p:nth-child(1){
-	/*color:#FFFFFF;*/
-	font-size: 15px;
-	color:#191919;
-}
-footer p:nth-child(2){
-	font-size: 16px;
-	color:#191919;
-	width:600px;
-	text-align: center;
-}
 footer{
-	height:25px;
+	height:75px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+footer p{
+	font-family: calibri,serif;
+}
+footer p:nth-child(2){
+	line-height: 5px;
+	font-size: 16px;
+	color:#191919;
+	width:600px;
+	text-align: center;
+}
+footer p:nth-child(1){
+	/*color:#FFFFFF;*/
+	/*color: red;*/
+
+	font-size: 15px;
+	color:#191919;
 }
 .copyright{
 	color:#565555;

@@ -64,6 +64,49 @@
        color:#2d2a2a;
        font-weight:bold;
      }
+     .about-container{
+    top: 125px;
+	width:80%;
+	height:400px;
+	background:#ffffff;
+	border-radius:20px;
+	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+	{#display: flex;#}
+	margin: -7%  auto 20px auto;
+	{#position: relative;#}
+	justify-content:space-evenly;
+	{#align-items: center;#}
+}
+     .footer-container{
+    position: relative;
+    top: 211px;
+	height:60px;
+	background:#ffffff;
+    {#border-radius:20px;#}
+	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+	{#display: flex;#}
+	{#margin: -7%  auto 20px auto;#}
+	{#position: relative;#}
+	{#justify-content:space-evenly;#}
+	{#align-items: center;#}
+}
+.footer-text{
+    text-align: match-parent;
+}
+.copyright{
+	color:#565555;
+	font-size: 15px;
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+}
+.copyright2{
+	color:#565555;
+	font-size: 15px;
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+}
      </style>
   </head>
   <body>
@@ -71,15 +114,36 @@
        <a href="/home" class="logo">Krishna Priyatham Potluri</a>
        <ul>
           <li><a href="/home" >Home</a></li>
-           <li><a href="/blog" >Blog</a></li>
-          <li><a href="/home#about" >About</a></li>
-          <li><a href="/skills" >Skills</a></li>
+          <li><a href="/about" >About</a></li>
+{#          <li><a href="/skills" >Skills</a></li>#}
           <li><a href="/resume">Resume</a></li>
           <li><a href="/achievements" >Achievements</a></li>
+           <li><a href="/contact" >Contact</a></li>
            <li><a href="/projects" >Projects</a></li>
-          <li><a href="/contact" >Contact</a></li>
+           <li><a href="/blog" >Blog</a></li>
         </ul>
       </nav>
 
+    <div class="about-container" id ="about">
+        <div class="about-inner-container">
+        <div class="about-header"><h1>Krishna Priyatham Potluri</h1></div>
+        <div class="about-text">
+            <br><a style="color: black" href="mailto:kittupriyatham@gmail.com"><img style="height: 5%;width: 5%"  src="../static/images/icons/gmail.gif"/>      Mail :  kittupriyatham@gmail.com</a> <br>
+            <br><a style="color: black" href="https://www.linkedin.com/in/krishna-priyatham-potluri/"><img style="height: 7%;width: 7%"  src="../static/images/icons/linkd.png"/>      Linkedin :  krishna-priyatham-potluri</a> <br>
+            <br><a style="color: black" href="https://github.com/kittupriyatham"><img style="height: 5%;width: 5%"  src="../static/images/icons/gitub.png"/>      Github :  kittupriyatham</a> <br>
+            <br><a style="color: black" href="wa.me/+919938796990"><img style="height: 5%;width: 5%"  src="../static/images/icons/whatsapp.jpg"/>   Whatsapp :  9938796990</a> <br>
+            <br><a style="color: black" href="https://www.facebook.com/KrishnaPriyathamPotluri"><img style="height: 5%;width: 5%"  src="../static/images/icons/faceb.png"/>      Facebook :  KrishnaPriyathamPotluri</a> <br>
+            <br><a style="color: black" href="https://www.instagram.com/krishna_priyatham_potluri/"><img style="height: 5%;width: 5%"  src="../static/images/icons/insta.png"/>      Instagram :  krishna_priyatham_potluri</a> <br>
+        </div>
+        </div>
+        <img src="../static/images/190050110.jpg" style="height: 200px;width: 200px"/>
+  </div>
+
+  <div class="footer-container" id ="footer">
+              <div class="footer-text">
+              <p class="copyright">Copyright &copy; 2022 Krishna Priyatham Potluri</p>
+                  <p class="copyright2">All Rights Reserved</p>
+              </div>
+  </div>
   </body>
 </html>
