@@ -68,7 +68,7 @@
     top: 125px;
     bottom: 125px;
 	width:80%;
-	height:400px;
+	height:4100px;
 	background:#ffffff;
 	border-radius:20px;
 	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
@@ -78,13 +78,19 @@
 	justify-content:space-evenly;
 	{#align-items: center;#}
 }
-.about-container img{
-	height:300px;
-}
-.about-text{
-	width:550px;
-
-}
+        iframe{
+            position: relative;
+            left:0;
+            top: 0;
+            width: 1000px;
+            height: 4000px;
+        }
+        .about-frame{
+            position: relative;
+            left:-225px;
+            width: 1000px;
+            height: 4000px;
+        }
      .footer-container{
     position: relative;
     top: 211px;
@@ -133,11 +139,12 @@
       </nav>
 
 <div class="about-container" id ="about">
-        <div class="about-text">
-            <br><a style="color: black" href="/projects/MLMD">Machine Learning Model Deployment (IRIS-C)</a> <br>
-            <br><a style="color: black" href="/projects/creo"> 3D Modelling of Revolver MG 31 DS</a> <br>
-            <br><a style="color: black" href="/projects/array"> Array Manipulation in C</a> <br>
-        </div>
+    <div class="about-text">
+    <div class="about-header"><h3>Array MAnipulation in C</h3></div>
+    <div class="about-frame">
+            <iframe src= 'https://www.jdoodle.com/iembed/v0/rxr' frameborder='0'></iframe>
+    </div>
+    </div>
 </div>
 
   <div class="footer-container" id ="footer">
