@@ -20,6 +20,7 @@
     <orderEntry type="library" name="bootstrap.bundle" level="application" />
     <orderEntry type="library" name="c8e4d183c2" level="application" />
     <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
+    <orderEntry type="module" module-name="Machine-Learning-Model-Deployment" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="versionSpecifier" value="Greater or equal (&gt;=x.y.z)" />
