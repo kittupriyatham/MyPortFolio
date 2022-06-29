@@ -64,17 +64,27 @@
        color:#2d2a2a;
        font-weight:bold;
      }
-     iframe{
-         position: absolute;
-         top: 70px;
+     #resume-menu{
+         top: 10px;
+         position: relative;
+     }
+     iframe#resume{
+         position: relative;
+         top: 20px;
          {#bottom: 2000px;#}
          left: 300px;
          width: 65%;
          height: 2317px;
      }
+     #video-resume{
+         position: relative;
+         top: 50px;
+         left: 300px;
+         width: 65%;
+     }
      .footer-container{
     position: relative;
-    top: 2337px;
+    top: 30px;
 	height:60px;
 	background:#ffffff;
     {#border-radius:20px;#}
@@ -103,6 +113,23 @@
 	transform: translateX(-50%);
 }
      </style>
+    <script>
+    function onloaded() {
+        document.getElementById("resume").style.display = "block";
+        document.getElementById("video-resume").style.display = "none";
+    }
+
+    function video_resume() {
+        document.getElementById("video-resume").style.display = "block";
+        document.getElementById("resume").style.display = "none";
+        document.getElementById("footer").style.top= "100px";
+    }
+
+    function resume(){
+        document.getElementById("resume").style.display = "block";
+        document.getElementById("video-resume").style.display = "none";
+        }
+    </script>
   </head>
   <body>
   <header>
@@ -119,14 +146,18 @@
 {#           <li><a href="/blog" >Blog</a></li>#}
         </ul>
       </nav></header>
+  <header><nav onloadstart="onloaded()" id="resume-menu"><ul> <li><a onclick=resume()> resume </a></li> <li><a onclick=video_resume()>video resume</a></li></ul></nav></header>
   <div>
-        <iframe src="../static/pdfs/190050110 KRISHNA PRIYATHAM POTLURI Resume2.pdf"></iframe>
-      <div class="footer-container" id ="footer">
+        <div id="resume-block">
+        <iframe onloadstart="onloaded()"  id="resume" src="../static/pdfs/190050110 KRISHNA PRIYATHAM POTLURI Resume2.pdf"></iframe>
+        <iframe style="display: none" onloadstart="onloaded()" controls id="video-resume" width="800px" height="400px" src="https://www.youtube.com/embed/-4KNQBN91eM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+  </div>
+  <div class="footer-container" id ="footer">
               <div class="footer-text">
               <p class="copyright">Copyright &copy; 2022 Krishna Priyatham Potluri</p>
                   <p class="copyright2">All Rights Reserved</p>
               </div>
-  </div>
-  </div>
+      </div>
   </body>
 </html>
