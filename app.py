@@ -30,6 +30,11 @@ def resume():
     return render_template('resume.html')
 
 
+@app.route('/video-resume')
+def video_resume():
+    return render_template('video-resume.html')
+
+
 @app.route('/achievements')
 def achievements():
     return render_template('achieve.html')
