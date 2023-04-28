@@ -65,11 +65,13 @@
        color:#2d2a2a;
        font-weight:bold;
      }
-        .about-container{
+     .about-container
+     {
+    position: relative;
     top: 125px;
     bottom: 125px;
 	width:80%;
-	height:5100px;
+	height:650px;
 	background:#ffffff;
 	border-radius:20px;
 	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
@@ -78,23 +80,33 @@
 	{#position: relative;#}
 	justify-content:space-evenly;
 	{#align-items: center;#}
-}
+     }
+     .about-text{
+         position: relative;
+         top: -30px;
+         text-align: center;
+     }
+     .about-header{
+         position: relative;
+         top: -10px;
+     }
+     .about-frame{
+            position: relative;
+            top: 0;
+            left:-225px;
+            width: 1000px;
+            height: 500px;
+        }
         iframe{
             position: relative;
             left:0;
             top: 0;
             width: 1000px;
-            height: 5000px;
-        }
-        .about-frame{
-            position: relative;
-            left:-225px;
-            width: 1000px;
-            height: 5000px;
+            height: 500px;
         }
      .footer-container{
     position: relative;
-    top: 211px;
+    top: 149px;
 	height:60px;
 	background:#ffffff;
     {#border-radius:20px;#}
@@ -111,14 +123,14 @@
 .copyright{
 	color:#565555;
 	font-size: 15px;
-	position: absolute;
+	{#position: absolute;#}
 	left:50%;
 	transform: translateX(-50%);
 }
 .copyright2{
 	color:#565555;
 	font-size: 15px;
-	position: absolute;
+	{#position: absolute;#}
 	left:50%;
 	transform: translateX(-50%);
 }
@@ -143,7 +155,8 @@
     <div class="about-text">
     <div class="about-header"><h3>Array MAnipulation in C</h3></div>
     <div class="about-frame">
-            <script src="//onlinegdb.com/embed/js/rkjVCWGAX?theme=dark"></script>
+        <iframe src="https://replit.com/@kittupriyatham/ArrayManipulation"></iframe>
+{#            <script src=""></script>#}
     </div>
     </div>
 </div>
