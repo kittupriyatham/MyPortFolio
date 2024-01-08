@@ -1,59 +1,36 @@
-/* body {
+@import "template.css";
+
+body {
     background-color: #f6f5f5;
     margin: 0;
     padding: 0;
     font-family: poppins, serif;
-} */
-/* 
+}
+
 ul {
     list-style: none;
 }
 
 a {
     text-decoration: none;
-} */
+}
 
-/* section {
+section {
     width: 0;
     height: 0;
-    background-image: url("../static/images/bg.jpg");
+    background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-} */
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-    padding: 0 5%;
 }
 
-nav ul {
-    display: flex;
-}
 
-nav ul li a {
-    margin: 30px;
-    font-family: myriad pro regular, serif;
-    color: #505050;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.logo {
-    font-family: RoadTest, serif;
-    color: #000000;
-    font-size: 22px;
-}
 
 .about-container {
+    position: relative;
     top: 125px;
     bottom: 125px;
     width: 80%;
-    height: 400px;
+    /*height: 400px;*/
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -100,7 +77,7 @@ nav ul li a {
     top: 225px;
     bottom: 500px;
     width: 80%;
-    height: 2500px;
+    height: 2000px;
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -133,8 +110,8 @@ nav ul li a {
 
 .footer-container {
     position: relative;
-    top: 225px;
-    height: 60px;
+    top: 100px;
+    height: 0;
     background: #ffffff;
     /* {#border-radius:20px;#} */
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -143,33 +120,4 @@ nav ul li a {
 	{#position: relative;#}
 	{#justify-content:space-evenly;#}
 	{#align-items: center;#} */
-}
-
-.footer-text {
-    text-align: match-parent;
-}
-
-.copyright {
-    color: #565555;
-    font-size: 15px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.copyright2 {
-    color: #565555;
-    font-size: 15px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.li {
-    list-style: disc;
-    /* {#font-weight: bold;#} */
-}
-
-.ul {
-    font-weight: bolder;
 }
