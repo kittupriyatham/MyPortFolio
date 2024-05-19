@@ -37,7 +37,7 @@ def video_resume():
 
 @app.route('/achievements')
 def achievements():
-    return render_template('achieve.html')
+    return render_template('achievements.html')
 
 
 @app.route('/contact')
