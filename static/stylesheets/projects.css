@@ -17,30 +17,22 @@
 
 
 .about-container{
-	display: flex;
-    top: 50px;
-	left: 10%;
+    top: 200px;
 	width:80%;
-	height:500px;
+	height:300px;
 	background:#ffffff;
 	border-radius:20px;
 	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+	margin: -7%  auto 20px auto;
 	justify-content:space-evenly;
 }
 
-.about-container-img{
-	top: 100px;
-}
-
-.about-inner-container{
-	top: 50px;
-}
-
 .about-text{
-	left: 50px;
-	height: 300px;
+    top: 10%;
+    left: 10%;
+	width:550px;
 }
 
 footer{
-    top: 100px;
+    top: 350px;
 }
