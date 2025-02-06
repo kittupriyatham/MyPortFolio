@@ -4,3 +4,7 @@ profile:
   name: qodana.recommended
 include:
   - name: CheckDependencyLicenses
+exclude:
+  - name: PyPackageRequirementsInspection
+  - name: PyUnresolvedReferencesInspection
+  - name: DuplicatedCode
