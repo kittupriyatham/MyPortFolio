@@ -6,6 +6,8 @@
     <title>My Resume</title>
     <link rel="icon"  href="../static/images/190050110.jpg">
     <link rel="stylesheet" href="../static/stylesheets/resume.css">
+    <link rel="stylesheet" href="../static/stylesheets/responsive.css">
+    <link rel="stylesheet" href="../static/stylesheets/utilities.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 {#    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1350801982957185"#}
@@ -31,7 +33,7 @@
           <li><a href="/video-resume">video resume</a></li>
       </ul>
   </nav>
-  <div id="resume-block">
+  <div id="resume-block" class="resume-block container">
     <iframe  class="resume-frame rf1" src="{{ url_for(download_url, download=download_f, filename='potlurikrishnapriyatham.pdf') }}"></iframe>
     <iframe  class="resume-frame rf2" src="../static/pdfs/potlurikrishnapriyatham.pdf"></iframe>
   </div>

@@ -1,8 +1,14 @@
-from flask import Flask, render_template, send_file, url_for, request
+from flask import Flask, render_template, send_file, request
+from jinja2 import  FileSystemLoader
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
+
+# Configure Jinja2 environment for template inheritance
+app.jinja_env.loader = FileSystemLoader('templates')
 
 
 @app.route('/')
@@ -49,14 +55,6 @@ def resume():
             download_url='resume'
             # download_url=url_for('resume_fun', download=False, filename='potlurikrishnapriyatham.pdf')
         )
-    # if not os.path.exists(resume_path):
-    #     return "File not found", 404  # Or handle the error gracefully
-    # try:
-    #     return render_template('resume.html')
-    # except Exception as e:
-    #     return f"Error sending file: {e}", 500
-    # return render_template('resume.html')#, send_file('./potlurikrishnapriyatham.pdf', as_attachment=True)
-
 
 @app.route('/video-resume')
 def video_resume():
@@ -89,5 +87,5 @@ def array():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # app.run()
+    debug_mode = os.getenv('FLASK_DEBUG')
+    app.run(debug=debug_mode)
