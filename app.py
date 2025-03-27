@@ -1,7 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file, request
+from jinja2 import  FileSystemLoader
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
+
+# Configure Jinja2 environment for template inheritance
+app.jinja_env.loader = FileSystemLoader('templates')
 
 
 @app.route('/')
@@ -27,8 +34,27 @@ def skills():
 
 @app.route('/resume')
 def resume():
-    return render_template('resume.html')
-
+    resume_path = './static/pdfs/potlurikrishnapriyatham.pdf'
+    if request.args.get('download'):
+        filename = request.args.get('filename')  # Get filename from query parameter
+        # filename = None
+        if not filename:
+            return "Filename not provided for download", 400
+        try:
+            return send_file(
+                resume_path,
+                as_attachment=True,
+                download_name=filename
+            )
+        except Exception as e:
+            return f"Error sending file: {e}", 500
+    else:
+        return render_template(
+            'resume.html',
+            download_f=True,
+            download_url='resume'
+            # download_url=url_for('resume_fun', download=False, filename='potlurikrishnapriyatham.pdf')
+        )
 
 @app.route('/video-resume')
 def video_resume():
@@ -37,7 +63,7 @@ def video_resume():
 
 @app.route('/achievements')
 def achievements():
-    return render_template('achieve.html')
+    return render_template('achievements.html')
 
 
 @app.route('/contact')
@@ -61,4 +87,5 @@ def array():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    debug_mode = os.getenv('FLASK_DEBUG')
+    app.run(debug=debug_mode)

@@ -1,3 +1,3 @@
 # MyPortFolio
 ## Repo Visualization
-![Visualization of the codebase](./diagram.svg) 
+![Visualization of the codebase](./static/images/diagram.svg) 

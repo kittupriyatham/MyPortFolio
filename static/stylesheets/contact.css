@@ -1,0 +1,46 @@
+@import "template.css";
+
+/*!* Extra small devices (phones, 600px and down) *!*/
+/*@media only screen and (max-width: 600px) {}*/
+
+/*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
+/*@media only screen and (max-width: 600px) {}*/
+
+/*!* Medium devices (landscape tablets, 768px and up) *!*/
+/*@media only screen and (max-width: 600px) {}*/
+
+/*!* Large devices (laptops/desktops, 992px and up) *!*/
+/*@media only screen and (max-width: 600px) {}*/
+
+/*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
+/*@media only screen and (min-width: 1200px) {}*/
+
+
+.about-container{
+	display: flex;
+    top: 50px;
+	left: 10%;
+	width:80%;
+	height:500px;
+	background:#ffffff;
+	border-radius:20px;
+	box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+	justify-content:space-evenly;
+}
+
+.about-container-img{
+	top: 100px;
+}
+
+.about-inner-container{
+	top: 50px;
+}
+
+.about-text{
+	left: 50px;
+	height: 300px;
+}
+
+footer{
+    top: 100px;
+}

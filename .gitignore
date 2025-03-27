@@ -1,3 +1,6 @@
 venv
+.venv/
+.cadence/
+.env
 /.idea/
 __pycache__/
