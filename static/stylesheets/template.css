@@ -1,5 +1,4 @@
 /*common entries for all devices*/
-@import "global.css";
 * {
 	margin: 0;
 	padding: 0;
@@ -101,14 +100,14 @@ body {
 	footer p:nth-child(2) {
 		line-height: 5px;
 		font-size: 16px;
-		color: #191919;
+		/*color: #191919;*/
 		width: 600px;
 		text-align: center;
 	}
 
 	footer p:nth-child(1) {
 		font-size: 15px;
-		color: #191919;
+		/*color: #191919;*/
 	}
 
 	.footer {
@@ -194,14 +193,14 @@ body {
 	footer p:nth-child(2) {
 		line-height: 5px;
 		font-size: 16px;
-		color: #191919;
+		/*color: #191919;*/
 		width: 600px;
 		text-align: center;
 	}
 
 	footer p:nth-child(1) {
 		font-size: 15px;
-		color: #191919;
+		/*color: #191919;*/
 	}
 
 	.footer {
@@ -287,14 +286,14 @@ body {
 	footer p:nth-child(2) {
 		line-height: 5px;
 		font-size: 16px;
-		color: #191919;
+		/*color: #191919;*/
 		width: 600px;
 		text-align: center;
 	}
 
 	footer p:nth-child(1) {
 		font-size: 15px;
-		color: #191919;
+		/*color: #191919;*/
 	}
 
 	.footer {
@@ -380,14 +379,14 @@ body {
 	footer p:nth-child(2) {
 		line-height: 5px;
 		font-size: 16px;
-		color: #191919;
+		/*color: #191919;*/
 		width: 600px;
 		text-align: center;
 	}
 
 	footer p:nth-child(1) {
 		font-size: 15px;
-		color: #191919;
+		/*color: #191919;*/
 	}
 
 	.footer {
@@ -474,14 +473,14 @@ body {
 	footer p:nth-child(2) {
 		line-height: 5px;
 		font-size: 16px;
-		color: #191919;
+		/*color: #191919;*/
 		width: 600px;
 		text-align: center;
 	}
 
 	footer p:nth-child(1) {
 		font-size: 15px;
-		color: #191919;
+		/*color: #191919;*/
 	}
 
 	.footer {

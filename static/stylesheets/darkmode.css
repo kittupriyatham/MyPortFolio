@@ -1,9 +1,12 @@
 /* Dark mode styles */
+@import "template.css";
+@import "index.css";
 :root {
   --bg-color-light: #f6f5f5;
   --text-color-light: #191919;
   --nav-bg-light: #ffffff;
   --nav-text-light: #505050;
+  --container-bg-light: #ffffff;
   --nav-hover-bg-light: grey;
   --nav-hover-text-light: white;
   --footer-bg-light: #ffffff;
@@ -11,13 +14,14 @@
   --box-shadow-light: rgba(0, 0, 0, 0.2);
 
   --bg-color-dark: #121212;
-  --text-color-dark: #e0e0e0;
+  --text-color-dark: white;
   --nav-bg-dark: #1e1e1e;
-  --nav-text-dark: #b0b0b0;
+  --nav-text-dark: white;
+  --container-bg-dark: #1e1e1e;
   --nav-hover-bg-dark: #505050;
-  --nav-hover-text-dark: #ffffff;
+  --nav-hover-text-dark: white;
   --footer-bg-dark: #1e1e1e;
-  --footer-text-dark: #b0b0b0;
+  --footer-text-dark: white;
   --box-shadow-dark: rgba(0, 0, 0, 0.5);
 
   /* Default to light mode */
@@ -27,6 +31,7 @@
   --nav-text: var(--nav-text-light);
   --nav-hover-bg: var(--nav-hover-bg-light);
   --nav-hover-text: var(--nav-hover-text-light);
+  --container-bg: var(--container-bg-light);
   --footer-bg: var(--footer-bg-light);
   --footer-text: var(--footer-text-light);
   --box-shadow: var(--box-shadow-light);
@@ -40,6 +45,7 @@ body.dark-mode {
   --nav-text: var(--nav-text-dark);
   --nav-hover-bg: var(--nav-hover-bg-dark);
   --nav-hover-text: var(--nav-hover-text-dark);
+  --container-bg: var(--container-bg-dark);
   --footer-bg: var(--footer-bg-dark);
   --footer-text: var(--footer-text-dark);
   --box-shadow: var(--box-shadow-dark);
@@ -72,55 +78,60 @@ body.dark-mode {
 }
 
 /* Override specific elements for dark mode */
-body.dark-mode nav {
+nav {
   background-color: var(--nav-bg);
   box-shadow: 2px 2px 12px var(--box-shadow);
 }
 
-body.dark-mode .logo {
+.logo {
   color: var(--text-color);
 }
 
-body.dark-mode nav ul li a {
+nav ul li a {
   color: var(--nav-text);
 }
 
-body.dark-mode nav a:hover {
+nav a:hover {
   color: var(--nav-hover-text);
   background-color: var(--nav-hover-bg);
 }
 
-body.dark-mode footer {
+footer {
   background-color: var(--footer-bg);
   box-shadow: 2px 2px 12px var(--box-shadow);
 }
 
-body.dark-mode footer p {
+footer p {
   color: var(--footer-text);
 }
 
 /* Additional styles for dark mode */
-body.dark-mode .box-container div {
+.box-container div {
   box-shadow: 2px 2px 12px var(--box-shadow);
 }
 
-body.dark-mode .about-container,
-body.dark-mode .services,
-body.dark-mode .services2 {
-  background-color: var(--bg-color);
+.about-container,
+.services,
+.services2,
+.container{
+  background-color: var(--container-bg);
 }
 
-body.dark-mode .about-text p,
-body.dark-mode .services-text p {
+.about-text p,
+.services-text p {
   color: var(--text-color);
 }
 
-body.dark-mode .view-me {
+.view-me {
   color: var(--text-color);
   border: 2px solid var(--text-color);
 }
 
-body.dark-mode .view-me:hover {
+.view-me:hover {
   background-color: var(--nav-hover-bg);
   color: var(--nav-hover-text);
+}
+body.dark-mode{
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
