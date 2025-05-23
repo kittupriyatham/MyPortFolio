@@ -63,13 +63,13 @@ body.dark-mode {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: none;
-  border: none;
+  background: rgba(128, 128, 128, 0.2);
+  border: 1px solid rgba(128, 128, 128, 0.3);
   cursor: pointer;
   margin-left: 10px;
-  color: var(--nav-text);
+  color: #f0c420; /* Yellow/gold color for better visibility */
   font-size: 20px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .dark-mode-toggle:hover {
@@ -134,4 +134,27 @@ footer p {
 body.dark-mode{
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+/* Ensure dark mode toggle is visible in dark mode */
+body.dark-mode .dark-mode-toggle {
+    color: #f0c420; /* Keep the same color in dark mode */
+    background: rgba(128, 128, 128, 0.3); /* Slightly darker background in dark mode */
+}
+
+/* About page specific styles */
+.about-link {
+    color: var(--text-color) !important;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.about-link:hover {
+    opacity: 0.8;
+}
+
+/* Override inline black color styles in dark mode */
+body.dark-mode a[style*="color: black"] {
+    color: var(--text-color) !important;
+    text-decoration: underline;
 }

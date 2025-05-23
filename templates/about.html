@@ -4,15 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>About Me</title>
+  <title>A day in my life</title>
   <link rel="icon" href="../static/images/190050110.jpg">
   <link rel="stylesheet" href="../static/stylesheets/about.css">
-    <link rel="stylesheet" href="../static/stylesheets/responsive.css">
-    <link rel="stylesheet" href="../static/stylesheets/utilities.css">
-    <link rel="stylesheet" href="../static/stylesheets/darkmode.css">
+  <link rel="stylesheet" href="../static/stylesheets/darkmode.css">
+  <link rel="stylesheet" href="../static/stylesheets/skills-visualization.css">
+
+
+
+
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
   <script src="../static/js/darkmode.js"></script>
+  <script src="../static/js/skills-visualization.js"></script>
   <script async="async" data-cfasync="false"
     src="//skidgleambrand.com/0f8d65c775d1f098fb3151e2ebdbadac/invoke.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1350801982957185"
@@ -37,151 +41,89 @@
     </ul>
   </nav>
 
-  <div class="about-container container d-flex flex-column items-center p-4" id="about">
-    {#<!--img-->
-    <div class="inner-about-container">#}
-      <img src="../static/images/190050110.jpg" alt="mypic" />
-      <!--about-me-text-->
-      <div class="about-text text-center">
-        <p>Hello, I am Potluri Krishna Priyatham</p> <br>
-        <p>A Computer Science undergraduate having an interest in diverse </p>
-        <p>fields like Data Science, AI, Cloud Computing, Quantum Science etc.</p>
-        <p>and in some engineering applications like drone building,</p>
-        <p>Robot making, IoT, 3D printing, etc. and many more.</p>
-        <p>I have learnt C, Java, Python. I am well proficient in English,</p>
-        <p>and I believe and am confident of myself.</p>
-        <p>#OpenForInternships.</p>
-        <br>
-      </div>
+  <!-- Section 1: Tell Your Story Through a Visual Timeline -->
+  <section class="about-page-container timeline-section">
+      <div class="first-part">
+        <h2 class="timeline-heading">My Journey</h2>
+        <div class="timeline">
+          <!-- Timeline Entry Template - Past Event -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">
+              <span>[2004]</span>
+            </div>
+            <div class="timeline-content">
+              <h3>First exposure to Technology</h3>
+              <p>I had my first experience with technology which is my father's internet enabled Nokia C1-01</p>
+              <!-- Optional image -->
+              <!-- <div class="timeline-image-placeholder">
+                <p>Add an image here (optional)</p>
+              </div> -->
+            </div>
+          </div>
 
-    </div>
-    <div class="about-container-2" id="about">
-      <div class="about-text-2">
-        <h1 class="about-text-heading-2">About Me</h1>
-        <div class="about-text-list">
-{#          <ul>#}
-{#            <li class="ul">#}
-{#              <h3>Education :</h3>#}
-{#            </li> <br>#}
-{#            <ul>#}
-{#              <li class="li">#}
-{#                <div><a style="color: black" href="/achievements#KLU">B.Tech at K L University</a><br> Computer Science#}
-{#                  And Engineering <br> cgpa: 8.24</div>#}
-{#              </li> <br>#}
-              {# <li class="li">
-                <div>B.Tech at National Institute of Technology <br> Food Process Engineering <br> Terminated </div>
-              </li> <br>#}
-              <li class="li">
-                <div><a style="color: black" href="/achievements#inter">Intermediate at Narayana Jr College</a><br> MPC
-                  <br> marks: 868/1000
-                </div>
-              </li> <br>
-              <li class="li">
-                <div><a style="color: black" href="/achievements#school">Schooling at Viswabharati [E.M] High
-                    School</a><br> general studies <br> cgpa: 9.2</div>
-              </li> <br>
-            </ul>
-            <li class="ul">
-              <h3>Skills :</h3>
-            </li> <br>
-            <ul>
-              <li class="ul">
-                <h4>Languages</h4>
-              </li> <br>
-              <ul>
-                <li class="li"><a style="color: black" href="/achievements#C">C</a></li> <br>
-                <li class="li">C++</li> <br>
-                <li class="li"><a style="color: black" href="/achievements#java">Java</a></li> <br>
-                <li class="li"><a style="color: black" href="/achievements#python">Python</a></li> <br>
-                <li class="li"><a style="color: black" href="/achievements#html">HTML</a></li> <br>
-                <li class="li"><a style="color: black" href="/achievements#css">CSS</a></li> <br>
-                <li class="li"><a style="color: black" href="/achievements#js">JavaScript</a></li> <br>
-              </ul>
-              <li class="ul">
-                <h4>Libraries and Frameworks</h4>
-              </li> <br>
-              <ul>
-                <li class="li">Flask</li> <br>
-                <li class="li">Pandas</li> <br>
-                <li class="li">Numpy</li> <br>
-                <li class="li">Matplotlib</li> <br>
-                <li class="li">Scikit-learn</li> <br>
-                <li class="li">OpenCV</li> <br>
-              </ul>
-              <li class="ul">
-                <h4>Tools/Platforms</h4>
-              </li> <br>
-              <ul>
-                <li class="li">Git</li> <br>
-                <li class="li">GitHub</li> <br>
-                <li class="li">Automation Anywhere</li> <br>
-              </ul>
-              <li class="ul">
-                <h4>Databases</h4>
-              </li> <br>
-              <ul>
-                <li class="li"><a style="color: black" href="/achievements#sql">MySQL</a></li> <br>
-                <li class="li">MongoDB</li> <br>
-              </ul>
-              <li class="ul">
-                <h4>Cloud</h4>
-              </li> <br>
-              <ul>
-                <li class="li"><a style="color: black" href="/achievements#AWS">AWS</a></li> <br>
-                <li class="li"><a style="color: black" href="/achievements#Azure">Azure</a></li> <br>
-              </ul>
-              <li class="ul">
-                <h4>Others</h4>
-              </li> <br>
-              <ul>
-                <li class="li">Data Science</li> <br>
-                <li class="li">Machine Learning</li> <br>
-                <li class="li">Quantum Computing</li> <br>
-              </ul>
-            </ul>
-            <li class="ul">
-              <h3>Projects :</h3>
-            </li> <br>
-            <ul>
-              <li class="li"><a style="color: black" href="https://github.com/kittupriyatham/MyPortFolio">MY
-                  PORTFOLIO</a></li><br>
-              <li class="li"><a style="color: black"
-                  href="https://github.com/kittupriyatham/Machine-Learning-Model-Deployment">IRIS FLOWER
-                  CLASSIFICATION</a></li> <br>
-              <li class="li"><a style="color: black"
-                  href="https://github.com/kittupriyatham/Academic-Projects/tree/main/3D-Modelling">3D MODELLING OF
-                  REVOLVER MG 31 DS</a></li> <br>
-              <li class="li"><a style="color: black"
-                  href="https://github.com/kittupriyatham/Academic-Projects/tree/main/Array-Manipulation-C">ARRAY
-                  MANIPULATION IN C</a></li> <br>
-            </ul>
-            <li class="ul">
-              <h3>Experiences</h3>
-            </li> <br>
-            <ul>
-              <li class="ul">
-                <h4>Internships</h4>
-              </li> <br>
-              <ul>
-                <li class="li">
-                  <div><a style="color: black" href="/achievements#jpl">Intern at Jio Platforms Limited</a> <br> AUG ’22
-                    - Present (8 M)</div>
-                </li> <br>
-                <li class="li">
-                  <div><a style="color: black" href="/achievements#is">Internship Trainee at Indian Servers</a> <br> JUN
-                    ’21 – AUG ’21 (3 M)</div>
-                </li> <br>
-                <li class="li">
-                  <div><a style="color: black" href="/achievements#isp">Internshala Student Partner at Intenrshala</a>
-                    <br> MAY ’20 – AUG ’20 (4 M)
-                  </div>
-                </li> <br>
-              </ul>
-            </ul>
-          </ul>
+          <!-- Timeline Entry Template - Learning Experience -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">
+              <span>[Year]</span>
+            </div>
+            <div class="timeline-content">
+              <h3>[Learning Experience]</h3>
+              <p>[Description of a pivotal learning experience and its impact]</p>
+            </div>
+          </div>
+
+          <!-- Timeline Entry Template - Major Transition -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">
+              <span>[Year]</span>
+            </div>
+            <div class="timeline-content">
+              <h3>[Major Transition]</h3>
+              <p>[Description of a significant transition in your life or career]</p>
+            </div>
+          </div>
+
+          <!-- Timeline Entry Template - Future Aspiration -->
+          <div class="timeline-item future">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">
+              <span>Future</span>
+            </div>
+            <div class="timeline-content">
+              <h3>[Future Goal or Aspiration]</h3>
+              <p>[Description of where you see yourself heading and what you hope to achieve]</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+      <!-- Second part after timeline -->
+      <div class="second-part">
+        <h3>A day in my life</h3>
+        <p>This is the second part of the section that appears vertically after the timeline. You can add your personal information, skills, or any other content you want to showcase here.</p>
+        <p>Feel free to customize this section with your own content and styling to match your portfolio's design.</p>
+      </div>
+
+      <!-- Fourth part after second part -->
+      <div class="fourth-part">
+        <h3>My Skills</h3>
+        <p class="skills-intro">Visualized as chemical compounds, with core competencies as central elements and related skills connected to them.</p>
+
+        <!-- Skills Visualization Container -->
+        <div id="skills-visualization">
+          <!-- The SVG visualization will be generated by JavaScript -->
+        </div>
+
+        <!-- Instructions for interaction -->
+        <div class="instructions-overlay">
+          Technical skills (green) appear in clusters connected to core competencies (blue). Soft skills (yellow) float freely around clusters. Hover over a skill to see connections and other instances. Scroll to zoom, drag to pan.
+        </div>
+      </div>
+  </section>
+
     <!--footer--------------->
     <footer>
         <p>All Rights Reserved</p>
