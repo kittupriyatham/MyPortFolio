@@ -1,0 +1,199 @@
+/* Skills Visualization Styles */
+.skills-intro {
+    text-align: center;
+    color: var(--text-color, #7e7d7d);
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+#skills-visualization {
+    width: 100%;
+    height: 800px;
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* SVG Styles */
+#skills-visualization svg {
+    display: block;
+    /*background-color: transparent;*/
+}
+
+/* Title */
+.skills-title {
+    font-size: 24px;
+    font-weight: bold;
+    fill: var(--text-color, #333);
+}
+
+/* Node Styles */
+.node circle {
+    stroke-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.node text {
+    font-size: 12px;
+    /*fill: var(--text-color, #333);*/
+    fill: white;
+    pointer-events: none; /* Ensures text doesn't interfere with hover */
+    transition: all 0.3s ease;
+}
+
+/* Core Competency Nodes */
+.core-competency circle {
+    fill: rgba(65, 105, 225); /* Royal Blue */
+    stroke: #4169e1;
+}
+
+.core-competency text {
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+
+/* Technical Skill Nodes */
+.technical-skill circle {
+    fill: rgba(46, 204, 113); /* Emerald Green */
+    stroke: #2ecc71;
+}
+
+/* Soft Skill Nodes */
+.soft-skill circle {
+    fill: rgba(241, 196, 15); /* Yellow */
+    stroke: #f1c40f;
+}
+
+/* Connection Lines */
+.connection {
+    stroke-width: 2px;
+    stroke-opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.technical-connection {
+    stroke: #2ecc71;
+}
+
+.soft-connection {
+    stroke: #f1c40f;
+}
+
+/* Hover Effects */
+.node.hover circle {
+    stroke-width: 3px;
+    transform: scale(1.1);
+}
+
+.node.connected circle {
+    stroke-width: 3px;
+    transform: scale(1.05);
+}
+
+/* Style for nodes that are instances of the same skill */
+.node.same-skill circle {
+    stroke-width: 2.5px;
+    stroke-dasharray: 3, 3; /* Dashed stroke */
+    opacity: 0.9;
+}
+
+.node.same-skill text {
+    font-weight: bold;
+}
+
+.connection.highlight {
+    stroke-width: 4px;
+    stroke-opacity: 1;
+}
+
+/* Legend Styles */
+.legend text {
+    font-size: 12px;
+    fill: var(--text-color, #333);
+}
+
+.legend circle {
+    stroke-width: 1px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    #skills-visualization {
+        background-color: rgba(220, 220, 220);
+    }
+
+    .skills-title, .node text, .legend text {
+        fill: var(--text-color, #f0f0f0);
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    #skills-visualization {
+        height: 600px;
+    }
+
+    .node text {
+        font-size: 10px;
+    }
+
+    .core-competency text {
+        font-size: 12px;
+    }
+
+    .legend text {
+        font-size: 10px;
+    }
+}
+
+/* Chemical Compound Visual Elements */
+.node circle {
+    /* Add subtle shadow for 3D effect */
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* Molecule-like pulsing animation for core competencies */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.core-competency circle {
+    animation: pulse 5s infinite ease-in-out;
+}
+
+/* Different pulse timing for each core competency */
+.node[data-id="software-dev"] circle { animation-delay: 0s; }
+.node[data-id="data-science"] circle { animation-delay: 1s; }
+.node[data-id="machine-learning"] circle { animation-delay: 2s; }
+.node[data-id="ai"] circle { animation-delay: 3s; }
+.node[data-id="quantum-computing"] circle { animation-delay: 4s; }
+
+/* Instructions overlay */
+.instructions-overlay {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Dark mode for instructions */
+@media (prefers-color-scheme: dark) {
+    .instructions-overlay {
+        background-color: rgba(50, 50, 50, 0.8);
+        color: #f0f0f0;
+    }
+}
