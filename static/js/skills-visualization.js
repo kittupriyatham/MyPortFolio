@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('dy', '0.3em');
-        text.setAttribute('fill', 'white'); // Set font color to white
+        text.setAttribute('fill', 'black'); // Set font color to white
 
         // Handle long text by splitting into multiple lines
         const words = name.split(' ');
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             text.setAttribute('x', 20);
             text.setAttribute('y', 5);
-            text.setAttribute('fill', 'white'); // Set font color to white
+            text.setAttribute('fill', 'black'); // Set font color to white
             text.textContent = type.label;
             item.appendChild(text);
 
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title.setAttribute('x', '500'); // Center of the canvas horizontally
         title.setAttribute('y', '35');
         title.setAttribute('text-anchor', 'middle'); // Ensure proper centering
-        title.setAttribute('fill', 'white'); // Set font color to white
+        title.setAttribute('fill', 'black'); // Set font color to white
         title.setAttribute('class', 'skills-title');
         title.textContent = 'Skills Visualization';
         svg.appendChild(title); // Add directly to SVG, not to the group that can be zoomed/panned
