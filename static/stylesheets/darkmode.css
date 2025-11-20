@@ -1,6 +1,7 @@
 /* Dark mode styles */
 @import "template.css";
 @import "index.css";
+
 :root {
   --bg-color-light: #f6f5f5;
   --text-color-light: #191919;
@@ -12,17 +13,19 @@
   --footer-bg-light: #ffffff;
   --footer-text-light: #191919;
   --box-shadow-light: rgba(0, 0, 0, 0.2);
+  --link-color-light: #000000;
 
   --bg-color-dark: #121212;
-  --text-color-dark: white;
+  --text-color-dark: #e0e0e0;
   --nav-bg-dark: #1e1e1e;
-  --nav-text-dark: white;
+  --nav-text-dark: #e0e0e0;
   --container-bg-dark: #1e1e1e;
   --nav-hover-bg-dark: #505050;
   --nav-hover-text-dark: white;
   --footer-bg-dark: #1e1e1e;
-  --footer-text-dark: white;
+  --footer-text-dark: #e0e0e0;
   --box-shadow-dark: rgba(0, 0, 0, 0.5);
+  --link-color-dark: #4da6ff;
 
   /* Default to light mode */
   --bg-color: var(--bg-color-light);
@@ -35,6 +38,7 @@
   --footer-bg: var(--footer-bg-light);
   --footer-text: var(--footer-text-light);
   --box-shadow: var(--box-shadow-light);
+  --link-color: var(--link-color-light);
 }
 
 /* Dark mode class that will be toggled */
@@ -49,10 +53,12 @@ body.dark-mode {
   --footer-bg: var(--footer-bg-dark);
   --footer-text: var(--footer-text-dark);
   --box-shadow: var(--box-shadow-dark);
+  --link-color: var(--link-color-dark);
 
   background-color: var(--bg-color);
   color: var(--text-color);
-  background-image: none; /* Remove background image in dark mode */
+  background-image: none;
+  /* Remove background image in dark mode */
 }
 
 /* Dark mode toggle button styles */
@@ -67,7 +73,8 @@ body.dark-mode {
   border: 1px solid rgba(128, 128, 128, 0.3);
   cursor: pointer;
   margin-left: 10px;
-  color: #f0c420; /* Yellow/gold color for better visibility */
+  color: #f0c420;
+  /* Yellow/gold color for better visibility */
   font-size: 20px;
   transition: all 0.3s ease;
 }
@@ -113,12 +120,13 @@ footer p {
 .about-container,
 .services,
 .services2,
-.container{
+.container {
   background-color: var(--container-bg);
 }
 
 .about-text p,
-.services-text p {
+.services-text p,
+.text-container p {
   color: var(--text-color);
 }
 
@@ -131,30 +139,76 @@ footer p {
   background-color: var(--nav-hover-bg);
   color: var(--nav-hover-text);
 }
-body.dark-mode{
-    background-color: var(--bg-color);
-    color: var(--text-color);
+
+body.dark-mode {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Ensure dark mode toggle is visible in dark mode */
 body.dark-mode .dark-mode-toggle {
-    color: #f0c420; /* Keep the same color in dark mode */
-    background: rgba(128, 128, 128, 0.3); /* Slightly darker background in dark mode */
+  color: #f0c420;
+  /* Keep the same color in dark mode */
+  background: rgba(128, 128, 128, 0.3);
+  /* Slightly darker background in dark mode */
+}
+
+/* Dark mode image handling - Add brightness filter to make images visible */
+body.dark-mode .box-1,
+body.dark-mode .box-2,
+body.dark-mode .box-3,
+body.dark-mode .box-21,
+body.dark-mode .box-22,
+body.dark-mode .box-23 {
+  filter: brightness(0.9) contrast(1.1);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .about-container img {
+  filter: brightness(0.95);
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 /* About page specific styles */
 .about-link {
-    color: var(--text-color) !important;
-    text-decoration: underline;
-    transition: color 0.3s ease;
+  color: var(--link-color) !important;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
 .about-link:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Override inline black color styles in dark mode */
-body.dark-mode a[style*="color: black"] {
-    color: var(--text-color) !important;
-    text-decoration: underline;
+body.dark-mode a[style*="color: black"],
+body.dark-mode a[style*="color:black"] {
+  color: var(--link-color) !important;
+  text-decoration: underline;
+}
+
+/* Ensure all links are visible in dark mode */
+body.dark-mode a {
+  color: var(--link-color);
+}
+
+body.dark-mode a:hover {
+  opacity: 0.8;
+}
+
+/* Timeline and other about page elements */
+body.dark-mode .timeline-content,
+body.dark-mode .timeline-date,
+body.dark-mode .timeline-heading-h2,
+body.dark-mode .second-part-heading-h2 {
+  color: var(--text-color);
+}
+
+body.dark-mode .timeline-dot {
+  background-color: var(--link-color);
+  box-shadow: 0 0 0 4px var(--container-bg);
+}
+
+body.dark-mode .timeline::before {
+  background-color: rgba(255, 255, 255, 0.2);
 }

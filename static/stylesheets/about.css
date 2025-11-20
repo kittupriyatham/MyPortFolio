@@ -17,19 +17,15 @@
 
 .about-page-container {
     position: relative;
-    height: 2700px;
-    /*min-height: 125vh;*/
-    top: 100px;
+    min-height: calc(100vh - 160px);
+    margin-top: 100px;
+    margin-bottom: 50px;
     width: 80%;
     left: 10%;
-    /*height: 400px;*/
     background: var(--container-bg, #ffffff);
     border-radius: 20px;
     box-shadow: 2px 2px 12px var(--box-shadow, rgba(0, 0, 0, 0.2));
-    /*display: flex;*/
-    /*padding: 40px;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    flex: 1;
 }
 
 .first-part {
@@ -38,10 +34,9 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--box-shadow, rgba(0, 0, 0, 0.2));
-    width: 80%; /* Ensure it takes full width of parent */
-    top: 75px;
-    left: 7.5%;
-    /*margin: 0 auto; !* Center horizontally *!*/
+    width: 80%;
+    margin-top: 75px;
+    margin-left: 7.5%;
 }
 
 .first-part .timeline-heading {
@@ -58,8 +53,8 @@
 .timeline {
     position: relative;
     max-width: 1200px;
-    margin: 0 auto; /* Already centered */
-    width: 100%; /* Ensure it takes full width of parent */
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* Center line */
@@ -176,10 +171,9 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--box-shadow, rgba(0, 0, 0, 0.2));
-    top: 175px;
-    width: 80%; /* Ensure it takes full width of parent */
-    left: 7.5%;
-    /*margin: 0 auto; !* Center horizontally *!*/
+    margin-top: 175px;
+    width: 80%;
+    margin-left: 7.5%;
 }
 
 .second-part h3 {
@@ -193,15 +187,40 @@
     margin-bottom: 15px;
 }
 
+.third-part {
+    position: relative;
+    background-color: var(--container-bg, #ffffff);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--box-shadow, rgba(0, 0, 0, 0.2));
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 7.5%;
+    margin-bottom: 50px;
+}
+
+.third-part h3 {
+    color: var(--text-color, #403e3e);
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-intro {
+    text-align: center;
+    color: var(--text-color, #7e7d7d);
+    margin-bottom: 30px;
+}
+
 .fourth-part {
     background-color: var(--container-bg, #ffffff);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px var(--box-shadow, rgba(0, 0, 0, 0.2));
-    /*margin-top: 20px;*/
     width: 80%;
-    left: 7.5%;
-    top: 275px;
+    margin-left: 7.5%;
+    margin-top: 275px;
 }
 
 .fourth-part h3 {
@@ -244,18 +263,18 @@
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        width: 90%; /* Slightly wider on mobile for better readability */
+        width: 90%;
     }
 
     .section-header {
-        width: 0%; /* Keep consistent with desktop */
-        margin-bottom: 0; /* No need for margin since width is 0 */
-        padding: 0; /* No need for padding since width is 0 */
+        width: 0%;
+        margin-bottom: 0;
+        padding: 0;
     }
 
     .section-content {
         width: 100%;
-        margin: 0 auto; /* Ensure it's centered */
+        margin: 0 auto;
     }
 
     .timeline-heading {
@@ -299,15 +318,14 @@
         right: auto;
     }
 
-    .first-part, .second-part, .fourth-part {
+    .first-part,
+    .second-part,
+    .third-part,
+    .fourth-part {
         padding: 20px;
     }
 
     .skills-category {
         padding: 12px;
     }
-}
-
-footer {
-    top: 950px; /* Increased to accommodate the larger skills visualization */
 }

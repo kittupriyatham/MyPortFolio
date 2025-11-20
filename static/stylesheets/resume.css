@@ -16,20 +16,17 @@
 /*@media only screen and (min-width: 1200px) {}*/
 
 
-.resume-menu{
+.resume-menu {
     top: 10px;
 }
 
-.resume-frame{
+.resume-frame {
     top: 50px;
     left: 20%;
     width: 60%;
     height: 1200px;
 }
-.rf1{
-    display: none;
-}
 
-footer{
-    top: 100px;
+.rf1 {
+    display: none;
 }
