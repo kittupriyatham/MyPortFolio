@@ -1,20 +1,5 @@
 @import "template.css";
 
-/*!* Extra small devices (phones, 600px and down) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Medium devices (landscape tablets, 768px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Large devices (laptops/desktops, 992px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
-/*@media only screen and (min-width: 1200px) {}*/
-
 .about-page-container {
     position: relative;
     min-height: calc(100vh - 160px);
@@ -46,8 +31,22 @@
 .timeline-heading {
     font-size: 32px;
     color: var(--text-color, #403e3e);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--text-color, #403e3e);
+    position: relative;
+}
+
+.timeline-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--text-color, #403e3e), transparent);
 }
 
 .timeline {
@@ -176,9 +175,36 @@
     margin-left: 7.5%;
 }
 
+.second-part-heading {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--text-color, #403e3e);
+    position: relative;
+}
+
+.second-part-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--text-color, #403e3e), transparent);
+}
+
+.second-part-heading h2 {
+    font-size: 32px;
+    color: var(--text-color, #403e3e);
+    text-align: center;
+    margin: 0;
+}
+
 .second-part h3 {
     color: var(--text-color, #403e3e);
     font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .second-part p {
@@ -201,60 +227,30 @@
 
 .third-part h3 {
     color: var(--text-color, #403e3e);
-    font-size: 24px;
+    font-size: 32px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--text-color, #403e3e);
+    position: relative;
+}
+
+.third-part h3::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--text-color, #403e3e), transparent);
 }
 
 .skills-intro {
     text-align: center;
     color: var(--text-color, #7e7d7d);
     margin-bottom: 30px;
-}
-
-.fourth-part {
-    background-color: var(--container-bg, #ffffff);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px var(--box-shadow, rgba(0, 0, 0, 0.2));
-    width: 80%;
-    margin-left: 7.5%;
-    margin-top: 275px;
-}
-
-.fourth-part h3 {
-    color: var(--text-color, #403e3e);
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.skills-category {
-    background-color: rgba(240, 240, 240, 0.5);
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 4px solid var(--text-color, #403e3e);
-}
-
-.skills-category h4 {
-    color: var(--text-color, #403e3e);
-    font-size: 20px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.skills-category p {
-    color: var(--text-color, #7e7d7d);
-    line-height: 1.6;
-    margin-bottom: 0;
 }
 
 /* Responsive Timeline and Layout */
@@ -320,12 +316,7 @@
 
     .first-part,
     .second-part,
-    .third-part,
-    .fourth-part {
+    .third-part {
         padding: 20px;
-    }
-
-    .skills-category {
-        padding: 12px;
     }
 }
