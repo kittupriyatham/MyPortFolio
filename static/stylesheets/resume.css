@@ -1,32 +1,70 @@
 @import "template.css";
 
-/*!* Extra small devices (phones, 600px and down) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Medium devices (landscape tablets, 768px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Large devices (laptops/desktops, 992px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
-/*@media only screen and (min-width: 1200px) {}*/
-
-
 .resume-menu {
-    top: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.resume-menu ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-menu a {
+    text-decoration: none;
+    color: var(--text-color, #403e3e);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.resume-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--primary-color, #007bff);
+}
+
+.resume-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 40px;
+    background-color: var(--container-bg, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--box-shadow, rgba(0, 0, 0, 0.1));
+    min-height: 800px;
 }
 
 .resume-frame {
-    top: 50px;
-    left: 20%;
-    width: 60%;
+    width: 75%;
     height: 1200px;
+    border: none;
+    border-radius: 8px;
 }
 
 .rf1 {
     display: none;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .resume-block {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .resume-frame {
+        height: 600px;
+    }
 }

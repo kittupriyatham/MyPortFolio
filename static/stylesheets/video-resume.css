@@ -1,31 +1,23 @@
 @import "template.css";
 @import "resume.css";
 
-/*!* Extra small devices (phones, 600px and down) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Medium devices (landscape tablets, 768px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Large devices (laptops/desktops, 992px and up) *!*/
-/*@media only screen and (max-width: 600px) {}*/
-
-/*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
-/*@media only screen and (min-width: 1200px) {}*/
-
-
-.resume-menu{
-    top: 10px;
+.video-resume-frame {
+    width: 100%;
+    max-width: 900px;
+    height: 506px;
+    /* 16:9 aspect ratio approx for 900px width */
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.video-resume-frame{
-    top: 50px;
-    left: 22%;
+/* Ensure container centers the video */
+#resume-block {
+    min-height: auto;
+    /* Override minimum height from resume.css if needed */
+    padding-bottom: 60px;
 }
 
-footer{
-    top: 100px;
+footer {
+    margin-top: auto;
 }
