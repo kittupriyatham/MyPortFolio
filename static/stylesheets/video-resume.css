@@ -13,7 +13,6 @@
 
 /* Ensure container centers the video */
 #resume-block {
-    min-height: auto;
     /* Override minimum height from resume.css if needed */
     padding-bottom: 60px;
 }
