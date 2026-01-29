@@ -25,7 +25,7 @@
   --footer-bg-dark: #1e1e1e;
   --footer-text-dark: #e0e0e0;
   --box-shadow-dark: rgba(0, 0, 0, 0.5);
-  --link-color-dark: #4da6ff;
+  --link-color-dark: #ffffff;
 
   /* Default to light mode */
   --bg-color: var(--bg-color-light);
