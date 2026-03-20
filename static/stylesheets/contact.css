@@ -30,6 +30,8 @@
 
 .about-container-img{
 	top: 100px;
+	height: 300px;
+	width: 300px;
 }
 
 .about-inner-container{
@@ -41,6 +43,19 @@
 	height: 300px;
 }
 
+.about-text a {
+	color: black;
+}
+
+.about-text img {
+	height: 5%;
+	width: 5%;
+}
+
+.about-text img[alt="linkedin"] {
+	height: 7%;
+	width: 7%;
+}
 footer{
     top: 100px;
 }
