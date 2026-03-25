@@ -4,3 +4,6 @@ venv
 .env
 /.idea/
 __pycache__/
+*pdf.py
+extract_resume.py
+qodana.yaml
