@@ -29,13 +29,163 @@
         </button></li>
     </ul>
   </nav>
-  <div class="about-container" id="about">
-    <div class="about-text">
-      <br><a class="project-link" href="/">My Portfolio</a> <br>
-      <br><a class="project-link" href="https://mlmd2.azurewebsites.net">Machine Learning Model Deployment (IRIS-C)</a>
-      <br>
-      <br><a class="project-link" href="/projects/creo">3D Modelling of Revolver MG 31 DS</a> <br>
-      <br><a class="project-link" href="/projects/array">Array Manipulation in C</a> <br>
+  <div class="projects-wrapper">
+    <div class="projects-header">
+      <h1>Featured Projects</h1>
+      <p>A collection of my recent work in Web Development, Machine Learning, and Software Engineering.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Card 1: OwnAgent -->
+      <a href="https://github.com/kittupriyatham/OwnAgent" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon"><i class="fas fa-robot"></i></div>
+        <div class="project-content">
+          <h3>OwnAgent: Autonomous AI Assistant</h3>
+          <p>Developed an autonomous agent using LangChain and Gemini-2.0-flash that executes complex system tasks, file operations, and real-time web research through a custom toolset.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">Gemini</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: Telegram Bot -->
+      <a href="https://github.com/kittupriyatham/GenAI-Telegram-Bot" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-c"><i class="fab fa-telegram-plane"></i></div>
+        <div class="project-content">
+          <h3>GenAI Telegram Bot</h3>
+          <p>A Telegram messenger bot acting as an alternative client leveraging APIs of ChatGPT and Google Gemini to bring users closer to advanced AI technologies.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenAI</span>
+            <span class="tech-tag">Gemini</span>
+            <span class="tech-tag">Telegram API</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: OpenCV WebApps -->
+      <div class="project-card">
+        <div class="project-icon icon-3d"><i class="fas fa-camera"></i></div>
+        <div class="project-content">
+          <h3>Computer Vision WebApps</h3>
+          <p>Several web applications for real-time video streaming, face recognition, and object detection using cascade filters and OpenCV.</p>
+          
+          <div class="repo-links">
+            <a href="https://github.com/kittupriyatham/FaceRecognition" class="repo-button" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Face Recognition</a>
+            <a href="https://github.com/kittupriyatham/ObjectDetection" class="repo-button" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Object Detection</a>
+            <a href="https://github.com/kittupriyatham/VideoStreaming" class="repo-button" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Video Streaming</a>
+          </div>
+
+          <div class="tech-stack">
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: BookManager -->
+      <a href="https://github.com/kittupriyatham/BookCollectionManager" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon"><i class="fas fa-book"></i></div>
+        <div class="project-content">
+          <h3>Book Collection Manager</h3>
+          <p>Full-stack CRUD application for managing personal libraries with persistent PostgreSQL storage, RESTful API architecture, and a modern responsive React frontend.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Java Spring Boot</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5: IRIS ML Pipeline -->
+      <a href="https://mlmd2.azurewebsites.net" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-ml"><i class="fas fa-brain"></i></div>
+        <div class="project-content">
+          <h3>IRIS Flower Classification</h3>
+          <p>Machine learning model for iris classification using Scikit-learn, deployed as an end-to-end pipeline in a Python Flask web app hosted on Azure.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Azure</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 6: Titanic Survival -->
+      <a href="https://github.com/kittupriyatham/Titanic-Survival-in-R" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-ml"><i class="fas fa-ship"></i></div>
+        <div class="project-content">
+          <h3>Titanic Survival Prediction</h3>
+          <p>A data science and machine learning project in R to predict the survival of passengers on the Titanic using statistical modeling.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">R</span>
+            <span class="tech-tag">Data Science</span>
+            <span class="tech-tag">Machine Learning</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 7: Weather Forecasting Tool -->
+      <a href="https://github.com/kittupriyatham/WeatherForecastingTool" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-c"><i class="fas fa-cloud-sun-rain"></i></div>
+        <div class="project-content">
+          <h3>Weather Forecasting Tool</h3>
+          <p>An application developed to fetch and display real-time weather forecasts and meteorological data.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">API</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 8: Dictionary -->
+      <!-- <a href="https://github.com/kittupriyatham/Dictionary" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-3d"><i class="fas fa-spell-check"></i></div>
+        <div class="project-content">
+          <h3>Dictionary Application</h3>
+          <p>A comprehensive dictionary tool for searching word definitions, synonyms, and language references.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Software Development</span>
+          </div>
+        </div>
+      </a> -->
+
+      <!-- Card 9: Car Manufacturing Company -->
+      <a href="https://github.com/kittupriyatham/CarManufacturingCompany" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-c"><i class="fas fa-car-side"></i></div>
+        <div class="project-content">
+          <h3>Car Manufacturing Simulator</h3>
+          <p>An object-oriented management system designed to handle operations logic for a car manufacturing company.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">System Design</span>
+            <span class="tech-tag">Object Oriented</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 10: 3D Modelling -->
+      <a href="https://github.com/kittupriyatham/Academic-Projects/tree/main/3D-Modelling" class="project-card" target="_blank" rel="noopener noreferrer">
+        <div class="project-icon icon-3d"><i class="fas fa-cogs"></i></div>
+        <div class="project-content">
+          <h3>Academic 3D Modelling</h3>
+          <p>Academic projects involving comprehensive 3D modeling, CAD design, and engineering drafting.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Creo</span>
+            <span class="tech-tag">CAD</span>
+            <span class="tech-tag">3D Design</span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
   <footer>
