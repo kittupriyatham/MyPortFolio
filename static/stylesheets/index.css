@@ -153,6 +153,10 @@ button:active {
 	margin: 20px 0;
 }
 
+.box-container a {
+	text-decoration: none;
+}
+
 .box-1,
 .box-2,
 .box-3 {
