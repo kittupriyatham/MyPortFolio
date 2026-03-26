@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - Potluri-Krishna-Priyatham-D
 on:
   push:
     branches:
-      - Dev
+      - master
   workflow_dispatch:
 
 jobs:
