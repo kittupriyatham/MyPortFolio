@@ -8,3 +8,6 @@ __pycache__/
 qodana.yaml
 extract_resume.py
 resume.md
+/.jj
+/.ra-aid/*
+/.ra-aid/logs/*
