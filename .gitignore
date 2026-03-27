@@ -1,7 +1,7 @@
 venv
 .venv/
 .cadence/
-.env
+flask.env
 /.idea/
 __pycache__/
 *pdf.py
