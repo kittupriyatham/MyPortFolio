@@ -1,45 +1,35 @@
-// Dark mode toggle functionality
+var MOON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+var SUN_SVG  = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>';
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Check for saved dark mode preference
-    const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
-    
-    // Apply dark mode if it was previously enabled
+    var darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+
     if (darkModeEnabled) {
         document.body.classList.add('dark-mode');
-        updateToggleIcon(true);
     }
-    
-    // Add click event to dark mode toggle button
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    updateToggleIcon(darkModeEnabled);
+
+    var darkModeToggle = document.getElementById('dark-mode-toggle');
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function() {
-            // Toggle dark mode class on body
-            const isDarkMode = document.body.classList.toggle('dark-mode');
-            
-            // Update localStorage
+            var isDarkMode = document.body.classList.toggle('dark-mode');
+
             if (isDarkMode) {
                 localStorage.setItem('darkMode', 'enabled');
             } else {
                 localStorage.setItem('darkMode', 'disabled');
             }
-            
-            // Update toggle icon
+
             updateToggleIcon(isDarkMode);
         });
     }
-    
-    // Function to update the toggle icon based on dark mode state
+
     function updateToggleIcon(isDarkMode) {
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        if (darkModeToggle) {
-            if (isDarkMode) {
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode (to switch to light)
-            } else {
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode (to switch to dark)
-            }
-        }
+        var btn = document.getElementById('dark-mode-toggle');
+        if (!btn) return;
+        btn.innerHTML = isDarkMode ? SUN_SVG : MOON_SVG;
+        btn.setAttribute('aria-label', isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        btn.setAttribute('title', isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     }
-    
-    // Initialize the toggle icon based on current state
-    updateToggleIcon(document.body.classList.contains('dark-mode'));
 });

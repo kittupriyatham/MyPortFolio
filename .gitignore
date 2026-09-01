@@ -4,10 +4,11 @@ venv
 flask.env
 /.idea/
 __pycache__/
-*pdf.py
 qodana.yaml
-extract_resume.py
 resume.md
 /.jj
 /.ra-aid/*
 /.ra-aid/logs/*
+.git.backup
+_backup_changed_files
+_patches_temp

@@ -1,31 +1,27 @@
-/* Dark mode styles */
-@import "template.css";
-@import "index.css";
+/* Dark Mode Variables and Core System */
 
 :root {
   --bg-color-light: #f6f5f5;
   --text-color-light: #191919;
   --nav-bg-light: #ffffff;
-  --nav-text-light: #505050;
+  --nav-text-light: #334155;
   --container-bg-light: #ffffff;
-  --nav-hover-bg-light: grey;
-  --nav-hover-text-light: white;
+  --nav-hover-bg-light: rgba(0, 119, 255, 0.08);
+  --nav-hover-text-light: #0077ff;
   --footer-bg-light: #ffffff;
   --footer-text-light: #191919;
-  --box-shadow-light: rgba(0, 0, 0, 0.2);
-  --link-color-light: #000000;
+  --box-shadow-light: rgba(0, 0, 0, 0.08);
 
   --bg-color-dark: #121212;
   --text-color-dark: #e0e0e0;
-  --nav-bg-dark: #1e1e1e;
+  --nav-bg-dark: #111418;
   --nav-text-dark: #e0e0e0;
   --container-bg-dark: #1e1e1e;
-  --nav-hover-bg-dark: #505050;
-  --nav-hover-text-dark: white;
-  --footer-bg-dark: #1e1e1e;
+  --nav-hover-bg-dark: rgba(0, 210, 255, 0.12);
+  --nav-hover-text-dark: #00d2ff;
+  --footer-bg-dark: #111418;
   --footer-text-dark: #e0e0e0;
   --box-shadow-dark: rgba(0, 0, 0, 0.5);
-  --link-color-dark: #ffffff;
 
   /* Default to light mode */
   --bg-color: var(--bg-color-light);
@@ -38,10 +34,9 @@
   --footer-bg: var(--footer-bg-light);
   --footer-text: var(--footer-text-light);
   --box-shadow: var(--box-shadow-light);
-  --link-color: var(--link-color-light);
 }
 
-/* Dark mode class that will be toggled */
+/* Dark mode class toggled by darkmode.js */
 body.dark-mode {
   --bg-color: var(--bg-color-dark);
   --text-color: var(--text-color-dark);
@@ -53,162 +48,124 @@ body.dark-mode {
   --footer-bg: var(--footer-bg-dark);
   --footer-text: var(--footer-text-dark);
   --box-shadow: var(--box-shadow-dark);
-  --link-color: var(--link-color-dark);
 
-  background-color: var(--bg-color);
+  background-color: #000000 !important;
   color: var(--text-color);
-  background-image: none;
-  /* Remove background image in dark mode */
+  background-image: none !important;
 }
 
-/* Dark mode toggle button styles */
+/* ==========================================================================
+   Dark Mode Toggle Button - Modern Premium Glassmorphic Styling
+   ========================================================================== */
+
 .dark-mode-toggle {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
   border-radius: 50%;
-  background: rgba(128, 128, 128, 0.2);
-  border: 1px solid rgba(128, 128, 128, 0.3);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid rgba(99, 102, 241, 0.25);
   cursor: pointer;
-  margin-left: 10px;
-  color: #f0c420;
-  /* Yellow/gold color for better visibility */
-  font-size: 20px;
-  transition: all 0.3s ease;
+  margin-left: 8px;
+  color: #4f46e5 !important;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .dark-mode-toggle:hover {
-  color: var(--nav-hover-text);
-  background-color: var(--nav-hover-bg);
+  transform: translateY(-1px) scale(1.05);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* Override specific elements for dark mode */
-nav {
-  background-color: var(--nav-bg);
-  box-shadow: 2px 2px 12px var(--box-shadow);
+.dark-mode-toggle i,
+.dark-mode-toggle svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.logo {
-  color: var(--text-color);
+.dark-mode-toggle:hover i,
+.dark-mode-toggle:hover svg {
+  transform: rotate(15deg) scale(1.1);
 }
 
-nav ul li a {
-  color: var(--nav-text);
-}
-
-nav a:hover {
-  color: var(--nav-hover-text);
-  background-color: var(--nav-hover-bg);
-}
-
-footer {
-  background-color: var(--footer-bg);
-  box-shadow: 2px 2px 12px var(--box-shadow);
-}
-
-footer p {
-  color: var(--footer-text);
-}
-
-/* Additional styles for dark mode */
-.box-container div {
-  box-shadow: 2px 2px 12px var(--box-shadow);
-}
-
-.about-container,
-.services,
-.services2,
-.container {
-  background-color: var(--container-bg);
-}
-
-.about-text p,
-.services-text p,
-.text-container p {
-  color: var(--text-color);
-}
-
-.view-me {
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
-}
-
-.view-me:hover {
-  background-color: var(--nav-hover-bg);
-  color: var(--nav-hover-text);
-}
-
-body.dark-mode {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Ensure dark mode toggle is visible in dark mode */
 body.dark-mode .dark-mode-toggle {
-  color: #f0c420;
-  /* Keep the same color in dark mode */
-  background: rgba(128, 128, 128, 0.3);
-  /* Slightly darker background in dark mode */
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #fbbf24 !important;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
 }
 
-/* Dark mode image handling - Add brightness filter to make images visible */
-body.dark-mode .box-1,
-body.dark-mode .box-2,
-body.dark-mode .box-3,
-body.dark-mode .box-21,
-body.dark-mode .box-22,
-body.dark-mode .box-23 {
-  filter: brightness(0.9) contrast(1.1);
-  background-color: rgba(255, 255, 255, 0.05);
+body.dark-mode .dark-mode-toggle:hover {
+  transform: translateY(-1px) scale(1.05);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
 }
 
-body.dark-mode .about-container img {
-  filter: brightness(0.95);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+nav ul li:last-child,
+nav ul li:has(.dark-mode-toggle) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
 }
 
-/* About page specific styles */
-.about-link {
-  color: var(--link-color) !important;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+nav ul li:has(.dark-mode-toggle):hover,
+nav ul li:has(.dark-mode-toggle) a:hover {
+  background-color: transparent !important;
+  color: inherit;
 }
 
-.about-link:hover {
-  opacity: 0.8;
+/* Base Nav & Footer dark mode rules */
+body.dark-mode nav {
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Override inline black color styles in dark mode */
-body.dark-mode a[style*="color: black"],
-body.dark-mode a[style*="color:black"] {
-  color: var(--link-color) !important;
-  text-decoration: underline;
+body.dark-mode .logo {
+  color: #ffffff;
 }
 
-/* Ensure all links are visible in dark mode */
-body.dark-mode a {
-  color: var(--link-color);
+body.dark-mode nav ul li a {
+  color: #e2e8f0;
 }
 
-body.dark-mode a:hover {
-  opacity: 0.8;
+body.dark-mode nav a:hover {
+  color: #00d2ff !important;
+  background-color: rgba(0, 210, 255, 0.12);
+  border-radius: 8px;
 }
 
-/* Timeline and other about page elements */
-body.dark-mode .timeline-content,
-body.dark-mode .timeline-date,
-body.dark-mode .timeline-heading-h2,
-body.dark-mode .second-part-heading-h2 {
-  color: var(--text-color);
+body.dark-mode footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid rgba(0, 210, 255, 0.15);
+  box-shadow: 2px 2px 12px var(--box-shadow);
 }
 
-body.dark-mode .timeline-dot {
-  background-color: var(--link-color);
-  box-shadow: 0 0 0 4px var(--container-bg);
-}
-
-body.dark-mode .timeline::before {
-  background-color: rgba(255, 255, 255, 0.2);
+body.dark-mode footer p {
+  color: var(--footer-text);
 }

@@ -1,12 +1,5 @@
-from flask import Flask, render_template, send_file, request, session, redirect, url_for, flash
-from jinja2 import FileSystemLoader
+from flask import Flask, render_template, send_file, url_for
 import os
-import json
-import uuid
-from datetime import datetime
-from werkzeug.utils import secure_filename
-from dotenv import load_dotenv
-import requests
 
 app = Flask(__name__)
 
@@ -32,7 +25,9 @@ def resume():
     return render_template(
         'resume.html',
         download_f=True,
-        download_url='resume'
+        download_url='resume',
+        # resume=resume_fetcher.get_resume_url()
+        resume = "../static/pdfs/Potluri_Krishna_Priyatham_Resume.pdf"
     )
 
 @app.route('/video-resume')
@@ -55,9 +50,32 @@ def projects():
     return render_template('projects.html')
 
 
+@app.route('/projects/creo/download')
+def download_creo_stl():
+    stl_path = r"C:\Users\kittu\projects\MyPortFolio\static\stl files\revolverassembly.stl"
+    if not os.path.isfile(stl_path):
+        return f"STL file not found at: {stl_path}", 404
+    response = send_file(
+        stl_path,
+        mimetype="application/octet-stream",
+        as_attachment=True,
+        download_name="revolverassembly.stl"
+    )
+    response.headers["Content-Type"] = "application/octet-stream"
+    response.headers["Content-Disposition"] = "attachment; filename=\"revolverassembly.stl\""
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    return response
+
+
 @app.route('/projects/creo')
 def creo():
-    return render_template('creo.html')
+    title = "3D Model of Revolver MG 31 DS"
+    description = "An interactive 3D view of the Revolver MG 31 DS model."
+    model_url = "https://cloud.glovius.com/embed/embedviewgl/1a2ff387-966d-4116-8a35-d249732ae529?canvasHeight=500&canvasWidth=1000"
+    download_url = "/static/stl%20files/revolverassembly.stl"
+    return render_template('creo.html', title=title, description=description, model_url=model_url, download_url=download_url)
 
 
 @app.route('/projects/array')
