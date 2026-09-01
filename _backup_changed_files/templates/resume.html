@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>My Resume | Potluri Krishna Priyatham</title>
+  <link rel="icon" href="../static/images/190050110.png">
+  <link rel="stylesheet" href="../static/stylesheets/resume.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+  <link rel="stylesheet" href="../static/stylesheets/darkmode.css">
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <script src="../static/js/darkmode.js"></script>
+</head>
+
+<body>
+  <nav>
+    <a href="/home" class="logo">Potluri Krishna Priyatham</a>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/achievements">Achievements</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <!-- <li><a href="/blog">Blog</a></li> -->
+      <li>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="resume-header">
+    <h1>Curriculum Vitae</h1>
+    <p>Explore my educational background, work experience at Bharat Electronics Limited, technical skills, and achievements.</p>
+
+    <div class="resume-actions">
+      <a href="{{ resume }}" download class="btn btn-primary"><i class="fas fa-download"></i> Download PDF</a>
+      <a href="{{ resume }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Open Fullscreen</a>
+    </div>
+  </div>
+
+  <nav class="resume-menu">
+    <ul class="tab-pill-container">
+      <li><a href="/resume" class="tab-pill active"><i class="fas fa-file-pdf"></i> PDF Resume</a></li>
+      <li><a href="/video-resume" class="tab-pill"><i class="fas fa-video"></i> Video Resume</a></li>
+    </ul>
+  </nav>
+
+  <div id="resume-block" class="resume-block container">
+    <iframe class="resume-frame rf2" title="PDF Resume" src="{{ resume }}"></iframe>
+  </div>
+
+  <footer>
+    <p>All Rights Reserved</p>
+    <p class="copyright">&copy; 2022 Potluri Krishna Priyatham</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potluri Krishna Priyatham | Portfolio</title>
+    <link rel="icon" href="../static/images/190050110.png">
+    <link rel="stylesheet" href="../static/stylesheets/index.css">
+    <link rel="stylesheet" href="../static/stylesheets/darkmode.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script src="../static/js/darkmode.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="/home" class="logo">Potluri Krishna Priyatham</a>
+        <input type="checkbox" id="click" class="menu-check-box" title="Toggle navigation menu" aria-label="Toggle navigation menu">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars menu-img"></i>
+        </label>
+        <ul class="menu-entries">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/resume">Resume</a></li>
+            <li><a href="/achievements">Achievements</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <!-- <li><a href="/blog">Blog</a></li> -->
+            <li>
+                <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-sparkles"></i> Welcome to My Portfolio</span>
+            <h1 class="hero-title">Potluri Krishna Priyatham</h1>
+            <p class="hero-subtitle">Deputy Engineer at Bharat Electronics Limited | Data Scientist & AI/Quantum Computing Enthusiast</p>
+            <div class="hero-cta">
+                <a href="/resume" class="btn btn-primary"><i class="fas fa-file-alt"></i> View Resume</a>
+                <a href="/projects" class="btn btn-secondary"><i class="fas fa-laptop-code"></i> Projects</a>
+                <a href="/contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section Card -->
+    <section class="home-container">
+        <div class="about-card">
+            <div class="about-card-img-wrapper">
+                <img src="../static/images/190050110.png" alt="Potluri Krishna Priyatham Profile Picture" class="about-profile-img" />
+            </div>
+            <div class="about-card-content">
+                <span class="card-badge">About Me</span>
+                <h2>Passionate about Tech & Innovation</h2>
+                <p>I am a Computer Science Engineer interested in Data Science, AI, Cloud Computing, and Quantum Science, alongside hands-on engineering applications like Robotics, IoT, and 3D printing.</p>
+                <div class="tag-cloud">
+                    <span class="tag"><i class="fas fa-brain"></i> AI & ML</span>
+                    <span class="tag"><i class="fas fa-atom"></i> Quantum Computing</span>
+                    <span class="tag"><i class="fas fa-cloud"></i> Cloud Computing</span>
+                    <span class="tag"><i class="fas fa-robot"></i> IoT & Robotics</span>
+                </div>
+                <div class="card-actions">
+                    <a class="btn btn-primary" href="/about">More About Me <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Blog Posts -->
+    <section class="home-container">
+        <div class="section-header">
+            <h2>Latest Publications & Articles</h2>
+            <p>Sharing insights on Data Science, build tools, and software engineering life cycle.</p>
+        </div>
+        <div class="card-grid">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/pulse/python-r-what-should-you-choose-krishna-priyatham-potluri-" class="preview-card">
+                <div class="card-icon icon-python"><i class="fab fa-python"></i></div>
+                <div class="card-body">
+                    <h3>Python vs R: What Should You Choose?</h3>
+                    <p>An in-depth comparison of Python and R for data science, analytics, and machine learning workflows.</p>
+                    <span class="card-link-text">Read on LinkedIn <i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </a>
+
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/pulse/sbt-krishna-priyatham-potluri-" class="preview-card">
+                <div class="card-icon icon-sbt"><i class="fas fa-tools"></i></div>
+                <div class="card-body">
+                    <h3>Understanding SBT (Scala Build Tool)</h3>
+                    <p>A practical breakdown of SBT build definitions, dependencies, and concurrent Scala projects.</p>
+                    <span class="card-link-text">Read on LinkedIn <i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </a>
+
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/posts/krishna-priyatham-potluri_data-science-life-cycle-activity-6923168639437217792-RV1m" class="preview-card">
+                <div class="card-icon icon-ds"><i class="fas fa-chart-line"></i></div>
+                <div class="card-body">
+                    <h3>Data Science Life Cycle</h3>
+                    <p>Understanding data acquisition, preprocessing, modeling, evaluation, and deployment phases.</p>
+                    <span class="card-link-text">Read on LinkedIn <i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="home-container margin-bottom-lg">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p>Highlights from my software development, AI agent, and computer vision work.</p>
+        </div>
+        <div class="card-grid">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/kittupriyatham/OwnAgent" class="preview-card">
+                <div class="card-icon icon-ai"><i class="fas fa-robot"></i></div>
+                <div class="card-body">
+                    <h3>OwnAgent: Autonomous AI Assistant</h3>
+                    <p>LangChain and Gemini-2.0 powered autonomous agent executing complex tasks and system research.</p>
+                    <div class="card-tags">
+                        <span class="mini-tag">LangChain</span>
+                        <span class="mini-tag">Gemini</span>
+                        <span class="mini-tag">Python</span>
+                    </div>
+                </div>
+            </a>
+
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/kittupriyatham/Machine-Learning-Model-Deployment" class="preview-card">
+                <div class="card-icon icon-ml"><i class="fas fa-brain"></i></div>
+                <div class="card-body">
+                    <h3>IRIS ML Model Deployment</h3>
+                    <p>End-to-end Machine Learning model pipeline deployed on Azure with Flask and Scikit-learn.</p>
+                    <div class="card-tags">
+                        <span class="mini-tag">Scikit-learn</span>
+                        <span class="mini-tag">Flask</span>
+                        <span class="mini-tag">Azure</span>
+                    </div>
+                </div>
+            </a>
+
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/kittupriyatham/Academic-Projects/tree/main/3D-Modelling" class="preview-card">
+                <div class="card-icon icon-cad"><i class="fas fa-cubes"></i></div>
+                <div class="card-body">
+                    <h3>3D Modelling & CAD Engineering</h3>
+                    <p>Comprehensive 3D modeling, CAD design, and engineering drafting projects in Creo.</p>
+                    <div class="card-tags">
+                        <span class="mini-tag">Creo</span>
+                        <span class="mini-tag">3D CAD</span>
+                        <span class="mini-tag">Drafting</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="center-btn-wrapper">
+            <a href="/projects" class="btn btn-secondary">Explore All Projects <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>All Rights Reserved</p>
+        <p class="copyright">&copy; 2022 Potluri Krishna Priyatham</p>
+    </footer>
+</body>
+
+</html>
