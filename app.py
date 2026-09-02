@@ -1,7 +1,76 @@
-from flask import Flask, render_template, send_file, url_for
+from flask import Flask, render_template, send_file, url_for, request, jsonify
 import os
+import json
+import requests as http_requests
 
 app = Flask(__name__)
+
+# ── Load JSONL profile once at startup ──────────────────────────────────────
+_PROFILE_PATH = os.path.join(os.path.dirname(__file__), "static", "master_profile.jsonl")
+
+def _build_knowledge_base():
+    """Extract all Q&A pairs from the JSONL fine-tuning dataset."""
+    kb = []
+    try:
+        with open(_PROFILE_PATH, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    obj = json.loads(line)
+                    msgs = obj.get("messages", [])
+                    q = next((m["content"] for m in msgs if m["role"] == "user"), None)
+                    a = next((m["content"] for m in msgs if m["role"] == "assistant"), None)
+                    if q and a:
+                        kb.append(f"Q: {q}\nA: {a}")
+                except json.JSONDecodeError:
+                    pass
+    except FileNotFoundError:
+        pass
+    return "\n\n".join(kb)
+
+_KNOWLEDGE_BASE = _build_knowledge_base()
+
+# ── Chat API ─────────────────────────────────────────────────────────────────
+@app.route("/api/chat", methods=["POST"])
+def chat():
+    data = request.get_json(silent=True) or {}
+    user_message = (data.get("message") or "").strip()
+    if not user_message:
+        return jsonify({"error": "empty message"}), 400
+
+    gemini_key = os.environ.get("GEMINI_API_KEY", "")
+    if not gemini_key:
+        return jsonify({"reply": "Chat is not configured yet — API key missing."}), 200
+
+    system_prompt = (
+        "You are an AI assistant representing Potluri Krishna Priyatham. "
+        "Answer questions about him using ONLY the knowledge base below. "
+        "If the answer is not in the knowledge base, say 'I don't have that information.' "
+        "Be concise and speak in first person as Potluri Krishna Priyatham.\n\n"
+        "KNOWLEDGE BASE:\n"
+        f"{_KNOWLEDGE_BASE}"
+    )
+
+    payload = {
+        "contents": [
+            {"role": "user", "parts": [{"text": f"{system_prompt}\n\nUser question: {user_message}"}]}
+        ]
+    }
+
+    try:
+        resp = http_requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={gemini_key}",
+            json=payload,
+            timeout=15
+        )
+        resp.raise_for_status()
+        reply = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+    except Exception:
+        reply = "Sorry, I couldn't process that right now."
+
+    return jsonify({"reply": reply})
 
 
 @app.route('/')

@@ -16,7 +16,11 @@
 <body>
   <nav>
     <a href="/home" class="logo">Potluri Krishna Priyatham</a>
-    <ul>
+    <input type="checkbox" id="click" class="menu-check-box" title="Toggle navigation menu" aria-label="Toggle navigation menu">
+    <label for="click" class="menu-btn">
+      <i class="fas fa-bars menu-img"></i>
+    </label>
+    <ul class="menu-entries">
       <li><a href="/home">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/resume">Resume</a></li>
@@ -24,9 +28,11 @@
       <li><a href="/contact">Contact</a></li>
       <li><a href="/projects">Projects</a></li>
       <!-- <li><a href="/blog">Blog</a></li> -->
-      <li><button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
+      <li>
+        <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button></li>
+        </button>
+      </li>
     </ul>
   </nav>
   <div class="projects-wrapper">
@@ -202,8 +208,6 @@
   </div>
   <footer>
     <p>All Rights Reserved</p>
-    <br class="footer">
-    <br class="footer">
     <p class="copyright">&copy; 2022 Potluri Krishna Priyatham</p>
   </footer>
 </body>

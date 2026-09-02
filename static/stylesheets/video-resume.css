@@ -1,22 +1,38 @@
 @import "template.css";
 @import "resume.css";
 
+/* =============================================
+   VIDEO RESUME PAGE — video-resume.css
+   Inherits header / tab-pill / resume-block from resume.css
+   ============================================= */
+
 .video-resume-frame {
-    width: 100%;
-    max-width: 900px;
-    height: 506px;
-    /* 16:9 aspect ratio approx for 900px width */
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	width: 100%;
+	max-width: 860px;
+	aspect-ratio: 16 / 9;
+	height: auto;
+	border: none;
+	border-radius: 12px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+	display: block;
 }
 
-/* Ensure container centers the video */
-#resume-block {
-    /* Override minimum height from resume.css if needed */
-    padding-bottom: 60px;
+body.dark-mode .video-resume-frame {
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.1);
+}
+
+/* Override resume-block min-height — video needs less space */
+#resume-block.resume-block {
+	min-height: unset;
+	padding-bottom: 40px;
 }
 
 footer {
-    margin-top: auto;
+	margin-top: auto;
+}
+
+@media only screen and (max-width: 768px) {
+	.video-resume-frame {
+		border-radius: 8px;
+	}
 }

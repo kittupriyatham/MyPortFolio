@@ -14,7 +14,11 @@
   <body>
     <nav>
       <a href="/home" class="logo">Potluri Krishna Priyatham</a>
-      <ul>
+      <input type="checkbox" id="click" class="menu-check-box" title="Toggle navigation menu" aria-label="Toggle navigation menu">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars menu-img"></i>
+      </label>
+      <ul class="menu-entries">
         <li><a href="/home">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/resume">Resume</a></li>
@@ -35,10 +39,152 @@
         <p>{{ description }}</p>
       </div>
       <div class="creo-card">
-        <iframe class="creo-iframe" title="{{ title }}" src="{{ model_url }}" allowfullscreen></iframe>
-        <a class="creo-download" href="/static/stl%20files/revolverassembly.stl" download="revolverassembly.stl">Download Model</a>
+        <div id="stl-viewer-container">
+          <canvas id="stl-canvas"></canvas>
+          <div id="stl-controls-hint"><i class="fas fa-mouse-pointer"></i> Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-drag to pan</div>
+          <div id="stl-loading">
+            <div class="stl-spinner"></div>
+            <span>Loading model…</span>
+          </div>
+        </div>
+        <a class="creo-download" href="/static/stl%20files/revolverassembly.stl" download="revolverassembly.stl">
+          <i class="fas fa-download"></i> Download STL
+        </a>
       </div>
     </div>
+
+    <!-- Three.js r128 + STLLoader + OrbitControls (all from CDN, no install needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+    (function () {
+      const container = document.getElementById('stl-viewer-container');
+      const canvas    = document.getElementById('stl-canvas');
+      const loading   = document.getElementById('stl-loading');
+
+      /* ---- Renderer ---- */
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      function resize() {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+
+      /* ---- Scene ---- */
+      const scene = new THREE.Scene();
+
+      /* ---- Camera ---- */
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 5000);
+      camera.position.set(0, 0, 200);
+
+      /* ---- Lights ---- */
+      scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+      dirLight.position.set(100, 200, 150);
+      dirLight.castShadow = true;
+      scene.add(dirLight);
+
+      const fillLight = new THREE.DirectionalLight(0x88aaff, 0.4);
+      fillLight.position.set(-100, -50, -100);
+      scene.add(fillLight);
+
+      /* ---- Material (dark-mode aware) ---- */
+      function getMaterial() {
+        const dark = document.body.classList.contains('dark-mode');
+        return new THREE.MeshPhongMaterial({
+          color:     dark ? 0x00bcd4 : 0x6272a4,
+          specular:  dark ? 0x00d2ff : 0xaabbff,
+          shininess: 80,
+          side: THREE.DoubleSide,
+        });
+      }
+
+      /* ---- Background (dark-mode aware) ---- */
+      function updateBg() {
+        const dark = document.body.classList.contains('dark-mode');
+        renderer.setClearColor(dark ? 0x111418 : 0xf4f4f6, 1);
+      }
+      updateBg();
+
+      /* ---- OrbitControls ---- */
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.08;
+      controls.minDistance = 20;
+      controls.maxDistance = 2000;
+
+      /* ---- Load STL ---- */
+      let mesh = null;
+      const loader = new THREE.STLLoader();
+      loader.load(
+        '/static/stl%20files/revolverassembly.stl',
+        function (geometry) {
+          geometry.computeBoundingBox();
+          geometry.computeVertexNormals();
+
+          // Centre the model
+          const box = new THREE.Box3().setFromBufferAttribute(geometry.attributes.position);
+          const centre = new THREE.Vector3();
+          box.getCenter(centre);
+          geometry.translate(-centre.x, -centre.y, -centre.z);
+
+          // Scale to fit ~150 units
+          const size = new THREE.Vector3();
+          box.getSize(size);
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const scale  = 150 / maxDim;
+
+          mesh = new THREE.Mesh(geometry, getMaterial());
+          mesh.scale.setScalar(scale);
+          mesh.castShadow = true;
+          mesh.receiveShadow = true;
+          scene.add(mesh);
+
+          // Pull camera back to fit
+          camera.position.set(0, 0, 300);
+          controls.update();
+
+          loading.style.display = 'none';
+        },
+        function (xhr) {
+          // progress — could update a bar here
+        },
+        function (err) {
+          loading.innerHTML = '<span style="color:#e55">Failed to load model</span>';
+          console.error('STL load error:', err);
+        }
+      );
+
+      /* ---- Animate ---- */
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+
+      /* ---- Dark mode observer (update material + bg when toggled) ---- */
+      const observer = new MutationObserver(function () {
+        updateBg();
+        if (mesh) mesh.material = getMaterial();
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+      // Defer first resize until after browser lays out the container
+      requestAnimationFrame(function() {
+        resize();
+        animate();
+      });
+      window.addEventListener('resize', resize);
+    })();
+    </script>
 
     <footer>
       <p>All Rights Reserved</p>

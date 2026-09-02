@@ -1,66 +1,232 @@
 @import "template.css";
 @import "darkmode.css";
 
+/* =============================================
+   RESUME PAGE — resume.css
+   Styled to match achievements / contact / projects aesthetic
+   ============================================= */
+
+/* ---- Page Header ---- */
+.resume-header {
+	text-align: center;
+	padding: 50px 5% 28px;
+}
+
+.resume-header h1 {
+	font-family: 'Poppins', sans-serif;
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 700;
+	color: #111;
+	margin-bottom: 10px;
+}
+
+body.dark-mode .resume-header h1 {
+	color: #fff;
+}
+
+.resume-header p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.1rem;
+	color: #666;
+	max-width: 560px;
+	margin: 0 auto 24px;
+	line-height: 1.6;
+}
+
+body.dark-mode .resume-header p {
+	color: #b3b3b3;
+}
+
+/* ---- Download / Open buttons ---- */
+.resume-actions {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 22px;
+	border-radius: 10px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+.btn-primary {
+	background: #111;
+	color: #fff;
+	border-color: #111;
+}
+
+.btn-primary:hover {
+	background: #333;
+	color: #fff;
+	transform: translateY(-3px);
+	box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+	background: transparent;
+	color: #111;
+	border-color: rgba(0,0,0,0.2);
+}
+
+.btn-secondary:hover {
+	background: #f5f5f5;
+	color: #111;
+	transform: translateY(-3px);
+}
+
+body.dark-mode .btn-primary {
+	background: rgba(0, 210, 255, 0.9);
+	color: #000;
+	border-color: transparent;
+}
+
+body.dark-mode .btn-primary:hover {
+	background: #00d2ff;
+	box-shadow: 0 6px 20px rgba(0, 210, 255, 0.3);
+}
+
+body.dark-mode .btn-secondary {
+	color: #e0e0e0;
+	border-color: rgba(0, 210, 255, 0.3);
+}
+
+body.dark-mode .btn-secondary:hover {
+	background: rgba(0, 210, 255, 0.08);
+	border-color: rgba(0, 210, 255, 0.6);
+	color: #00d2ff;
+}
+
+/* ---- Tab Pill Navigation ---- */
 .resume-menu {
-    margin-top: 10px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+	margin: 20px auto 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
-.resume-menu ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.tab-pill-container {
+	display: flex;
+	gap: 6px;
+	list-style: none;
+	padding: 5px;
+	margin: 0;
+	background: rgba(0,0,0,0.04);
+	border-radius: 50px;
+	border: 1px solid rgba(0,0,0,0.08);
 }
 
-.resume-menu a {
-    text-decoration: none;
-    color: var(--nav-text, #505050);
-    font-size: 18px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
+body.dark-mode .tab-pill-container {
+	background: rgba(255,255,255,0.04);
+	border-color: rgba(0, 210, 255, 0.15);
 }
 
+.tab-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 8px 20px;
+	border-radius: 50px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	transition: all 0.25s ease;
+	white-space: nowrap;
+}
+
+.tab-pill:hover {
+	color: #111;
+	background: rgba(0,0,0,0.05);
+}
+
+.tab-pill.active {
+	background: #111;
+	color: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.tab-pill.active:hover {
+	background: #333;
+	color: #fff;
+}
+
+body.dark-mode .tab-pill {
+	color: #999;
+}
+
+body.dark-mode .tab-pill:hover {
+	color: #00d2ff;
+	background: rgba(0, 210, 255, 0.06);
+}
+
+body.dark-mode .tab-pill.active {
+	background: rgba(0, 210, 255, 0.9);
+	color: #000;
+	box-shadow: 0 3px 12px rgba(0, 210, 255, 0.3);
+}
+
+/* ---- Resume Block (iframe container) ---- */
 .resume-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 85%;
-    max-width: 1200px;
-    margin: 0 auto 40px;
-    padding: 40px;
-    background-color: var(--container-bg, #ffffff);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--box-shadow, rgba(0, 0, 0, 0.1));
-    min-height: 800px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 90%;
+	max-width: 1100px;
+	margin: 28px auto 48px;
+	padding: 30px;
+	background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+	min-height: 800px;
+	transition: all 0.3s ease;
+}
+
+.resume-block:hover {
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .resume-block {
+	background: #111418;
+	border: 1px solid rgba(0, 210, 255, 0.3);
+	box-shadow: 0 4px 15px rgba(0, 210, 255, 0.15), inset 0 0 15px rgba(0, 210, 255, 0.05);
+}
+
+body.dark-mode .resume-block:hover {
+	box-shadow: 0 8px 25px rgba(0, 210, 255, 0.25), inset 0 0 20px rgba(0, 210, 255, 0.08);
+	border-color: rgba(0, 210, 255, 0.6);
 }
 
 .resume-frame {
-    width: 78%;
-    height: 1200px;
-    border: none;
-    border-radius: 8px;
+	width: 100%;
+	max-width: 860px;
+	height: 1100px;
+	border: none;
+	border-radius: 10px;
 }
 
-.rf1 {
-    display: none;
-}
+.rf1 { display: none; }
 
-/* Responsive adjustments */
+/* =============================================
+   RESPONSIVE
+   ============================================= */
 @media only screen and (max-width: 768px) {
-    .resume-block {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .resume-frame {
-        height: 600px;
-    }
+	.resume-header { padding: 36px 5% 20px; }
+	.resume-block { width: 95%; padding: 16px; min-height: 500px; }
+	.resume-frame { height: 600px; }
+	.tab-pill { padding: 7px 14px; font-size: 13px; }
 }

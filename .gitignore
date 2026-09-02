@@ -12,3 +12,5 @@ resume.md
 .git.backup
 _backup_changed_files
 _patches_temp
+.env
+.kiro

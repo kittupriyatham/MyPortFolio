@@ -1,0 +1,168 @@
+<!-- ═══════════════════════════════════════════
+     CHATBOT WIDGET  (shared include for all pages)
+     Session history persists via sessionStorage.
+     ═══════════════════════════════════════════ -->
+
+<!-- Floating bubble -->
+<button id="chat-bubble" onclick="toggleChat()" title="Ask me anything"
+        aria-label="Open Ask Me chat" aria-expanded="false">
+    <svg id="chat-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+    <svg id="chat-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </svg>
+</button>
+
+<!-- Chat panel -->
+<div id="chat-panel" role="dialog" aria-modal="true"
+     aria-label="Ask Potluri Krishna Priyatham" hidden>
+    <div id="chat-header">
+        <div id="chat-header-left">
+            <div id="chat-avatar">KP</div>
+            <div>
+                <div id="chat-name">Ask Me — KP's AI</div>
+                <div id="chat-status">
+                    <span id="chat-status-dot"></span>
+                    <span id="chat-status-text">Online</span>
+                </div>
+            </div>
+        </div>
+        <button id="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </button>
+    </div>
+    <div id="chat-messages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+    <div id="chat-input-row">
+        <input id="chat-input" type="text" placeholder="Ask about my skills, projects…"
+               maxlength="300" autocomplete="off"
+               onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();sendChat()}"
+               aria-label="Type your message">
+        <button id="chat-send-btn" onclick="sendChat()" aria-label="Send message">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    const SESSION_KEY = 'kp_chat_history';
+    const GREETING = "Hi! I'm an AI trained on Krishna Priyatham's profile. Ask me about his background, skills, projects, or experience.";
+
+    /* ── Restore or initialise chat history ── */
+    function loadHistory() {
+        try { return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || []; }
+        catch (e) { return []; }
+    }
+    function saveHistory(history) {
+        try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(history.slice(-40))); }
+        catch (e) {}
+    }
+
+    let chatHistory = loadHistory();
+
+    /* ── DOM helpers ── */
+    function appendMsg(role, text, save) {
+        const container = document.getElementById('chat-messages');
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-msg-wrap chat-wrap-' + role;
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-msg chat-' + role;
+        bubble.textContent = text;
+        wrap.appendChild(bubble);
+        container.appendChild(wrap);
+        container.scrollTop = container.scrollHeight;
+        if (save !== false) {
+            chatHistory.push({ role, text });
+            saveHistory(chatHistory);
+        }
+    }
+
+    function renderHistory() {
+        const container = document.getElementById('chat-messages');
+        container.innerHTML = '';
+        chatHistory.forEach(function (m) { appendMsg(m.role, m.text, false); });
+    }
+
+    function setStatus(busy) {
+        const dot = document.getElementById('chat-status-dot');
+        const txt = document.getElementById('chat-status-text');
+        if (busy) { dot.classList.add('busy'); txt.textContent = 'Thinking…'; }
+        else       { dot.classList.remove('busy'); txt.textContent = 'Online'; }
+    }
+
+    /* ── Toggle open/close ── */
+    window.toggleChat = function () {
+        const panel  = document.getElementById('chat-panel');
+        const bubble = document.getElementById('chat-bubble');
+        const open   = panel.hidden;
+        panel.hidden = !open;
+        bubble.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.getElementById('chat-icon-open').style.display  = open ? 'none' : '';
+        document.getElementById('chat-icon-close').style.display = open ? ''     : 'none';
+
+        if (open) {
+            renderHistory();
+            if (chatHistory.length === 0) {
+                appendMsg('bot', GREETING);
+            }
+            setTimeout(function () { document.getElementById('chat-input').focus(); }, 80);
+        }
+    };
+
+    /* ── Send message ── */
+    window.sendChat = async function () {
+        const input = document.getElementById('chat-input');
+        const msg   = input.value.trim();
+        if (!msg) return;
+        input.value = '';
+        input.disabled = true;
+        document.getElementById('chat-send-btn').disabled = true;
+
+        appendMsg('user', msg);
+        setStatus(true);
+
+        /* Typing indicator */
+        const container = document.getElementById('chat-messages');
+        const typingWrap = document.createElement('div');
+        typingWrap.className = 'chat-msg-wrap chat-wrap-bot';
+        typingWrap.id = 'chat-typing';
+        typingWrap.innerHTML = '<div class="chat-msg chat-bot chat-typing"><span></span><span></span><span></span></div>';
+        container.appendChild(typingWrap);
+        container.scrollTop = container.scrollHeight;
+
+        try {
+            const res  = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg })
+            });
+            const data = await res.json();
+            typingWrap.remove();
+            appendMsg('bot', data.reply || 'No response.');
+        } catch (e) {
+            typingWrap.remove();
+            appendMsg('bot', 'Connection error. Try again later.');
+        } finally {
+            setStatus(false);
+            input.disabled = false;
+            document.getElementById('chat-send-btn').disabled = false;
+            input.focus();
+        }
+    };
+
+    /* ── Close on Escape ── */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !document.getElementById('chat-panel').hidden) {
+            window.toggleChat();
+            document.getElementById('chat-bubble').focus();
+        }
+    });
+})();
+</script>

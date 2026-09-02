@@ -43,20 +43,19 @@ body.dark-mode {
 /* Header Section */
 .achievements-header {
   text-align: center;
-  margin: 60px auto 30px;
-  padding: 0 20px;
+  padding: 50px 5% 30px;
 }
 
 .achievements-header h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 10px;
-  background: linear-gradient(90deg, #4da6ff, #00d2ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+  color: #111;
   font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode .achievements-header h1 {
+  color: #fff;
 }
 
 .achievements-header p {
@@ -64,6 +63,7 @@ body.dark-mode {
   color: #666;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 body.dark-mode .achievements-header p {
