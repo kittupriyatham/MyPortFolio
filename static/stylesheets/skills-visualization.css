@@ -7,6 +7,28 @@
     line-height: 1.5;
 }
 
+.skills-timeline-controls {
+    display: grid;
+    grid-template-columns: minmax(130px, auto) minmax(180px, 1fr);
+    align-items: center;
+    gap: 14px 18px;
+    max-width: 760px;
+    margin: 0 auto 24px;
+    padding: 16px 18px;
+    border: 1px solid rgba(65, 105, 225, 0.25);
+    border-radius: 12px;
+    background: rgba(65, 105, 225, 0.05);
+}
+
+.skills-year-readout { display: flex; flex-direction: column; }
+#skills-year-value { color: #4169e1; font-size: 1.65rem; font-weight: 700; line-height: 1; }
+#skills-year-label { font-size: 0.8rem; margin-top: 5px; }
+#skills-year-slider { width: 100%; accent-color: #4169e1; cursor: pointer; }
+.skills-year-only { grid-column: 2; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem; }
+.skills-year-only input { width: 16px; height: 16px; accent-color: #4169e1; }
+body.dark-mode .skills-timeline-controls { background: rgba(65, 105, 225, 0.13); border-color: rgba(121, 155, 255, 0.38); }
+body.dark-mode #skills-year-value { color: #9bb6ff; }
+
 #skills-visualization {
     width: 100%;
     height: 800px;
@@ -43,6 +65,8 @@
     pointer-events: none; /* Ensures text doesn't interfere with hover */
     transition: all 0.3s ease;
 }
+
+.skills-empty { font-size: 20px; fill: #666; }
 
 /* Core Competency Nodes */
 .core-competency circle {
@@ -136,6 +160,8 @@
 
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
+    .skills-timeline-controls { grid-template-columns: 1fr; gap: 12px; }
+    .skills-year-only { grid-column: 1; }
     #skills-visualization {
         height: 600px;
     }
