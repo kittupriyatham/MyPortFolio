@@ -1,12 +1,17 @@
 from flask import Flask, render_template, send_file, url_for, request, jsonify
 import os
 import json
+import logging
 import requests as http_requests
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+load_dotenv()
+app.logger.setLevel(logging.INFO)
 
 # ── Load JSONL profile once at startup ──────────────────────────────────────
-_PROFILE_PATH = os.path.join(os.path.dirname(__file__), "static", "master_profile.jsonl")
+_PROFILE_PATH = os.path.join(os.path.dirname(__file__), "static", "data", "master_profile.jsonl")
+_GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 def _build_knowledge_base():
     """Extract all Q&A pairs from the JSONL fine-tuning dataset."""
@@ -44,6 +49,10 @@ def chat():
     if not gemini_key:
         return jsonify({"reply": "Chat is not configured yet — API key missing."}), 200
 
+    if not _KNOWLEDGE_BASE:
+        app.logger.error("Chat knowledge base is empty; expected profile at %s", _PROFILE_PATH)
+        return jsonify({"reply": "Chat is not ready yet — my profile data could not be loaded."}), 503
+
     system_prompt = (
         "You are an AI assistant representing Potluri Krishna Priyatham. "
         "Answer questions about him using ONLY the knowledge base below. "
@@ -54,21 +63,30 @@ def chat():
     )
 
     payload = {
+        "system_instruction": {"parts": [{"text": system_prompt}]},
         "contents": [
-            {"role": "user", "parts": [{"text": f"{system_prompt}\n\nUser question: {user_message}"}]}
+            {"role": "user", "parts": [{"text": user_message}]}
         ]
     }
 
     try:
+        model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
         resp = http_requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={gemini_key}",
+            _GEMINI_ENDPOINT.format(model=model),
+            params={"key": gemini_key},
             json=payload,
-            timeout=15
+            timeout=30
         )
         resp.raise_for_status()
-        reply = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
-    except Exception:
-        reply = "Sorry, I couldn't process that right now."
+        candidates = resp.json().get("candidates", [])
+        parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
+        reply = "".join(part.get("text", "") for part in parts).strip()
+        if not reply:
+            app.logger.warning("Gemini returned no text candidate for chat request")
+            return jsonify({"reply": "I couldn't generate an answer for that. Please try a different question."}), 502
+    except (http_requests.RequestException, ValueError, KeyError, IndexError) as error:
+        app.logger.warning("Gemini chat request failed: %s", error)
+        return jsonify({"reply": "The chat service is temporarily unavailable. Please try again shortly."}), 502
 
     return jsonify({"reply": reply})
 
