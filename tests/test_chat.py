@@ -30,7 +30,8 @@ class ChatRouteTests(unittest.TestCase):
         self.assertEqual(result.status_code, 200)
         self.assertEqual(result.get_json(), {"reply": "Hello from the profile."})
         self.assertEqual(post.call_args.kwargs["json"]["contents"][0]["parts"][0]["text"], "Hello")
-        self.assertIn("system_instruction", post.call_args.kwargs["json"])
+        self.assertIn("third person", post.call_args.kwargs["json"]["system_instruction"]["parts"][0]["text"].lower())
+        self.assertIn("hiring", post.call_args.kwargs["json"]["system_instruction"]["parts"][0]["text"].lower())
         self.assertIn("gemini-2.5-flash", post.call_args.args[0])
 
     @patch("app.http_requests.post", side_effect=requests.RequestException("network failure"))

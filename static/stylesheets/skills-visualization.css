@@ -31,8 +31,9 @@ body.dark-mode #skills-year-value { color: #9bb6ff; }
 
 #skills-visualization {
     width: 100%;
-    height: 800px;
-    /*background-color: rgba(255, 255, 255, 0.8);*/
+    height: clamp(640px, 72vh, 900px);
+    max-height: 900px;
+    min-height: 640px;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
@@ -43,7 +44,8 @@ body.dark-mode #skills-year-value { color: #9bb6ff; }
 /* SVG Styles */
 #skills-visualization svg {
     display: block;
-    /*background-color: transparent;*/
+    width: 100%;
+    height: 100%;
 }
 
 /* Title */
@@ -60,9 +62,7 @@ body.dark-mode #skills-year-value { color: #9bb6ff; }
 }
 
 .node text {
-    font-size: 12px;
-    /*fill: var(--text-color, #333);
-    pointer-events: none; /* Ensures text doesn't interfere with hover */
+    font-size: 10px;
     transition: all 0.3s ease;
 }
 
@@ -76,11 +76,15 @@ body.dark-mode #skills-year-value { color: #9bb6ff; }
 
 .core-competency text {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 11px;
     color: black;
 }
 
-/* Technical Skill Nodes */
+.technical-skill text {
+    font-size: 9px;
+    pointer-events: none;
+}
+
 .technical-skill circle {
     fill: rgba(46, 204, 113); /* Emerald Green */
     stroke: #2ecc71;
@@ -163,7 +167,9 @@ body.dark-mode #skills-year-value { color: #9bb6ff; }
     .skills-timeline-controls { grid-template-columns: 1fr; gap: 12px; }
     .skills-year-only { grid-column: 1; }
     #skills-visualization {
-        height: 600px;
+        height: clamp(520px, 72vh, 720px);
+        max-height: 720px;
+        min-height: 520px;
     }
 
     .node text {
