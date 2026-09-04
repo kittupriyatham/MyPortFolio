@@ -5,3 +5,4 @@ markdown
 weasyprint
 requests
 gunicorn
+google-genai<3.0.0

@@ -1,9 +1,17 @@
-from flask import Flask, render_template, send_file, url_for, request, jsonify
+from flask import Flask, render_template, send_file, request, jsonify
 import os
 import json
 import logging
-import requests as http_requests
 from dotenv import load_dotenv
+
+try:
+    from google import genai
+    from google.genai import errors as genai_errors
+    from google.genai import types as genai_types
+except ImportError:  # pragma: no cover - handled at request time when SDK is absent
+    genai = None
+    genai_errors = None
+    genai_types = None
 
 app = Flask(__name__)
 load_dotenv()
@@ -11,7 +19,26 @@ app.logger.setLevel(logging.INFO)
 
 # ── Load JSONL profile once at startup ──────────────────────────────────────
 _PROFILE_PATH = os.path.join(os.path.dirname(__file__), "static", "data", "master_profile.jsonl")
-_GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+_DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite"
+
+
+def _create_gemini_client(api_key: str):
+    if genai is None:
+        raise RuntimeError("Gemini SDK is not installed")
+    return genai.Client(api_key=api_key)
+
+
+def _gemini_error_reply(error):
+    error_code = getattr(error, "code", None)
+    status_code = getattr(error, "status_code", None)
+    error_text = str(error)
+    if error_code in (401, 403) or status_code in (401, 403) or "403" in error_text or "401" in error_text or "PERMISSION_DENIED" in error_text or "UNAUTHENTICATED" in error_text:
+        return (
+            "Chat is not configured for this Gemini project or model. "
+            "Check GEMINI_API_KEY, Gemini access, and the selected model."
+        ), 503
+
+    return "The chat service is temporarily unavailable. Please try again shortly.", 502
 
 def _build_knowledge_base():
     """Extract all Q&A pairs from the JSONL fine-tuning dataset."""
@@ -90,31 +117,29 @@ def chat():
         f"{_KNOWLEDGE_BASE}"
     )
 
-    payload = {
-        "system_instruction": {"parts": [{"text": system_prompt}]},
-        "contents": [
-            {"role": "user", "parts": [{"text": user_message}]}
-        ]
-    }
+    error_types = (ValueError, KeyError, IndexError, AttributeError)
+    if genai_errors is not None:
+        error_types = error_types + (genai_errors.APIError,)
 
     try:
-        model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-        resp = http_requests.post(
-            _GEMINI_ENDPOINT.format(model=model),
-            params={"key": gemini_key},
-            json=payload,
-            timeout=30
+        model = os.environ.get("GEMINI_MODEL", _DEFAULT_GEMINI_MODEL)
+        client = _create_gemini_client(gemini_key)
+        chat_session = client.chats.create(
+            model=model,
+            config=genai_types.GenerateContentConfig(system_instruction=system_prompt),
         )
-        resp.raise_for_status()
-        candidates = resp.json().get("candidates", [])
-        parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
-        reply = "".join(part.get("text", "") for part in parts).strip()
+        response = chat_session.send_message(user_message)
+        reply = (getattr(response, "text", "") or "").strip()
         if not reply:
             app.logger.warning("Gemini returned no text candidate for chat request")
             return jsonify({"reply": "I couldn't generate an answer for that. Please try a different question."}), 502
-    except (http_requests.RequestException, ValueError, KeyError, IndexError) as error:
+    except RuntimeError as error:
+        app.logger.error("Gemini SDK is not installed: %s", error)
+        return jsonify({"reply": "Chat is not ready yet — Gemini SDK is not installed."}), 503
+    except error_types as error:
         app.logger.warning("Gemini chat request failed: %s", error)
-        return jsonify({"reply": "The chat service is temporarily unavailable. Please try again shortly."}), 502
+        reply, status_code = _gemini_error_reply(error)
+        return jsonify({"reply": reply}), status_code
 
     return jsonify({"reply": reply})
 
