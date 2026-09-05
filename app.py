@@ -147,7 +147,9 @@ def chat():
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template("index.html")
+    apk_path = os.path.join(os.path.dirname(__file__), "static", "apks", "portfolio.apk")
+    apk_available = os.path.isfile(apk_path)
+    return render_template("index.html", apk_available=apk_available)
 
 
 @app.route('/about')
@@ -188,6 +190,23 @@ def contact():
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
+
+
+@app.route('/download/apk')
+def download_apk():
+    apk_path = os.path.join(os.path.dirname(__file__), "static", "apks", "portfolio.apk")
+    if not os.path.isfile(apk_path):
+        return render_template("index.html", apk_available=False), 200
+    response = send_file(
+        apk_path,
+        mimetype="application/vnd.android.package-archive",
+        as_attachment=True,
+        download_name="Portfolio.apk"
+    )
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+    return response
 
 
 @app.route('/projects/creo/download')
