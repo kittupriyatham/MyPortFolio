@@ -241,8 +241,12 @@ def creo():
 def array():
     return render_template('arraymanipulation.html')
 
+@app.route('/gfl417sme2wwiygun73r19sebbgh4f.html')
+def metadomain():
+    return render_template('gfl417sme2wwiygun73r19sebbgh4f.html')
+
 
 if __name__ == '__main__':
-    host  = os.environ.get('HOST', '0.0.0.0')
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host=host, port=port, debug=True)
+    # host  = os.environ.get('HOST', '0.0.0.0')
+    # port = int(os.environ.get('PORT', 5001))
+    app.run(port=5000, debug=True)
