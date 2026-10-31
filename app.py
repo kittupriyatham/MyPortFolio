@@ -211,7 +211,7 @@ def download_apk():
 
 @app.route('/projects/creo/download')
 def download_creo_stl():
-    stl_path = r"C:\Users\kittu\projects\MyPortFolio\static\stl files\revolverassembly.stl"
+    stl_path = r"C:\\Users\\kittu\\projects\\MyPortFolio\\static\\stl files\\revolverassembly.stl"
     if not os.path.isfile(stl_path):
         return f"STL file not found at: {stl_path}", 404
     response = send_file(
@@ -244,6 +244,10 @@ def array():
 @app.route('/gfl417sme2wwiygun73r19sebbgh4f.html')
 def metadomain():
     return render_template('gfl417sme2wwiygun73r19sebbgh4f.html')
+
+@app.route('/pinterest-7e38d.html')
+def pinterestdomain():
+    return render_template('pinterest-7e38d.html')
 
 
 if __name__ == '__main__':
