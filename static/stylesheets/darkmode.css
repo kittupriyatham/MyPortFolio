@@ -1,29 +1,34 @@
-/* Dark Mode Variables and Core System */
+/* ==========================================================================
+   Dark Mode System: "Quantum Deep Slate & Electric Neon"
+   ========================================================================== */
 
 :root {
-  --bg-color-light: #f6f5f5;
-  --text-color-light: #191919;
-  --nav-bg-light: #ffffff;
-  --nav-text-light: #334155;
-  --container-bg-light: #ffffff;
-  --nav-hover-bg-light: rgba(0, 119, 255, 0.08);
-  --nav-hover-text-light: #0077ff;
-  --footer-bg-light: #ffffff;
-  --footer-text-light: #191919;
-  --box-shadow-light: rgba(0, 0, 0, 0.08);
+  --bg-color-light: #f8fafc;
+  --text-color-light: #0f172a;
+  --nav-bg-light: rgba(255, 255, 255, 0.85);
+  --nav-text-light: #475569;
+  --container-bg-light: rgba(255, 255, 255, 0.85);
+  --nav-hover-bg-light: rgba(99, 102, 241, 0.08);
+  --nav-hover-text-light: #4f46e5;
+  --footer-bg-light: rgba(255, 255, 255, 0.85);
+  --footer-text-light: #64748b;
+  --box-shadow-light: rgba(0, 0, 0, 0.04);
+  --border-light: rgba(0, 0, 0, 0.08);
 
-  --bg-color-dark: #121212;
-  --text-color-dark: #e0e0e0;
-  --nav-bg-dark: #111418;
-  --nav-text-dark: #e0e0e0;
-  --container-bg-dark: #1e1e1e;
-  --nav-hover-bg-dark: rgba(0, 210, 255, 0.12);
-  --nav-hover-text-dark: #00d2ff;
-  --footer-bg-dark: #111418;
-  --footer-text-dark: #e0e0e0;
-  --box-shadow-dark: rgba(0, 0, 0, 0.5);
+  /* User Confirmed Dark Mode Tokens */
+  --bg-color-dark: #030712;                   /* Obsidian Deep Slate */
+  --text-color-dark: #f8fafc;
+  --nav-bg-dark: rgba(3, 7, 18, 0.85);        /* Frosted Deep Obsidian */
+  --nav-text-dark: #94a3b8;
+  --container-bg-dark: rgba(15, 23, 42, 0.75); /* Option 4 Ultimate Fusion Base */
+  --nav-hover-bg-dark: rgba(6, 182, 212, 0.1);
+  --nav-hover-text-dark: #22d3ee;
+  --footer-bg-dark: rgba(3, 7, 18, 0.85);
+  --footer-text-dark: #94a3b8;
+  --box-shadow-dark: rgba(0, 0, 0, 0.6);
+  --border-dark: rgba(255, 255, 255, 0.08);
 
-  /* Default to light mode */
+  /* Defaults */
   --bg-color: var(--bg-color-light);
   --text-color: var(--text-color-light);
   --nav-bg: var(--nav-bg-light);
@@ -49,13 +54,13 @@ body.dark-mode {
   --footer-text: var(--footer-text-dark);
   --box-shadow: var(--box-shadow-dark);
 
-  background-color: #000000 !important;
-  color: var(--text-color);
+  background-color: var(--bg-color-dark) !important;
+  color: var(--text-color-dark) !important;
   background-image: none !important;
 }
 
 /* ==========================================================================
-   Dark Mode Toggle Button - Modern Premium Glassmorphic Styling
+   Dark Mode Toggle Button
    ========================================================================== */
 
 .dark-mode-toggle {
@@ -111,17 +116,17 @@ body.dark-mode {
 
 body.dark-mode .dark-mode-toggle {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid rgba(251, 191, 36, 0.4);
-  color: #fbbf24 !important;
-  box-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  color: #22d3ee !important;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.25);
 }
 
 body.dark-mode .dark-mode-toggle:hover {
   transform: translateY(-1px) scale(1.05);
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: #030712 !important;
   border-color: transparent;
-  box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
 }
 
 nav ul li:last-child,
@@ -139,33 +144,82 @@ nav ul li:has(.dark-mode-toggle) a:hover {
   color: inherit;
 }
 
-/* Base Nav & Footer dark mode rules */
+/* ==========================================================================
+   Base Nav & Footer Dark Mode Rules (Option 2: Bottom Line Only)
+   ========================================================================== */
+
 body.dark-mode nav {
-  background-color: var(--nav-bg);
-  border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  background-color: var(--nav-bg-dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
 body.dark-mode .logo {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+body.dark-mode .menu-btn {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .menu-entries {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
 }
 
 body.dark-mode nav ul li a {
-  color: #e2e8f0;
+  color: #94a3b8;
 }
 
-body.dark-mode nav a:hover {
-  color: #00d2ff !important;
-  background-color: rgba(0, 210, 255, 0.12);
-  border-radius: 8px;
+body.dark-mode nav a:hover,
+body.dark-mode nav ul li a.active {
+  color: #22d3ee !important;
+  background-color: rgba(6, 182, 212, 0.1) !important;
 }
 
+/* Quick Search Pill in Dark Mode */
+body.dark-mode .nav-search-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+body.dark-mode .nav-search-pill kbd {
+  background: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+body.dark-mode .nav-search-pill:hover {
+  border-color: #06b6d4;
+  background: rgba(6, 182, 212, 0.12);
+  color: #22d3ee;
+}
+
+/* Blue-Cyan Hollow Buttons in Dark Mode (Option 3 with Option 1 Rounding) */
+body.dark-mode .btn-cyan-hollow,
+body.dark-mode .btn-hollow {
+  background: rgba(6, 182, 212, 0.05);
+  border-color: rgba(6, 182, 212, 0.65);
+  color: #22d3ee !important;
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.16);
+}
+
+body.dark-mode .btn-cyan-hollow:hover,
+body.dark-mode .btn-hollow:hover {
+  background: rgba(6, 182, 212, 0.18);
+  border-color: #06b6d4;
+  color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.5);
+}
+
+/* Footer Dark Mode */
 body.dark-mode footer {
-  background-color: var(--footer-bg);
-  border-top: 1px solid rgba(0, 210, 255, 0.15);
-  box-shadow: 2px 2px 12px var(--box-shadow);
+  background-color: var(--footer-bg-dark) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode footer p {
-  color: var(--footer-text);
+  color: var(--footer-text-dark) !important;
 }

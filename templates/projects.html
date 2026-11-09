@@ -12,11 +12,16 @@
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
   <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
   <script src="../static/js/darkmode.js"></script>
+  <script src="../static/js/ambient-canvas.js"></script>
+  <script src="../static/js/command-palette.js"></script>
 </head>
 
 <body>
   <nav>
-    <a href="/home" class="logo">Potluri Krishna Priyatham</a>
+    <a href="/home" class="logo">
+      <span class="logo-badge">KP</span>
+      <span>Potluri Krishna Priyatham</span>
+    </a>
     <input type="checkbox" id="click" class="menu-check-box" title="Toggle navigation menu" aria-label="Toggle navigation menu">
     <label for="click" class="menu-btn">
       <i class="fas fa-bars menu-img"></i>
@@ -30,6 +35,13 @@
       <li><a href="/projects">Projects</a></li>
       <!-- <li><a href="/blog">Blog</a></li> -->
       <li>
+        <div class="nav-search-pill" onclick="window.openCommandPalette && window.openCommandPalette()" title="Press Ctrl+K to search">
+          <i class="fas fa-search" style="font-size: 11px;"></i>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </div>
+      </li>
+      <li>
         <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
@@ -42,9 +54,17 @@
       <p>A collection of my recent work in Web Development, Machine Learning, and Software Engineering.</p>
     </div>
 
+    <!-- Project Category Filter Pills -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All Projects</button>
+      <button class="filter-btn" data-filter="ai"><i class="fas fa-robot"></i> AI & Data Science</button>
+      <button class="filter-btn" data-filter="web"><i class="fas fa-globe"></i> Web & Cloud</button>
+      <button class="filter-btn" data-filter="tools"><i class="fas fa-cogs"></i> CAD & Systems</button>
+    </div>
+
     <div class="projects-grid">
       <!-- Card 1: OwnAgent -->
-      <a href="https://github.com/kittupriyatham/OwnAgent" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/OwnAgent" class="project-card" data-category="ai" target="_blank" rel="noopener noreferrer">
         <div class="project-icon"><i class="fas fa-robot"></i></div>
         <div class="project-content">
           <h3>OwnAgent: Autonomous AI Assistant</h3>
@@ -58,7 +78,7 @@
       </a>
 
       <!-- Card 2: Telegram Bot -->
-      <a href="https://github.com/kittupriyatham/GenAI-Telegram-Bot" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/GenAI-Telegram-Bot" class="project-card" data-category="ai" target="_blank" rel="noopener noreferrer">
         <div class="project-icon icon-c"><i class="fab fa-telegram-plane"></i></div>
         <div class="project-content">
           <h3>GenAI Telegram Bot</h3>
@@ -73,7 +93,7 @@
       </a>
 
       <!-- Card 3: OpenCV WebApps -->
-      <div class="project-card">
+      <div class="project-card" data-category="ai web">
         <div class="project-icon icon-3d"><i class="fas fa-camera"></i></div>
         <div class="project-content">
           <h3>Computer Vision WebApps</h3>
@@ -97,7 +117,7 @@
       </div>
 
       <!-- Card 4: BookManager -->
-      <a href="https://github.com/kittupriyatham/BookCollectionManager" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/BookCollectionManager" class="project-card" data-category="web" target="_blank" rel="noopener noreferrer">
         <div class="project-icon"><i class="fas fa-book"></i></div>
         <div class="project-content">
           <h3>Book Collection Manager</h3>
@@ -111,7 +131,7 @@
       </a>
 
       <!-- Card 5: IRIS ML Pipeline -->
-      <div class="project-card">
+      <div class="project-card" data-category="ai web">
         <div class="project-icon icon-ml"><i class="fas fa-brain"></i></div>
         <div class="project-content">
           <h3>IRIS Flower Classification</h3>
@@ -135,7 +155,7 @@
       </div>
 
       <!-- Card 6: Titanic Survival -->
-      <a href="https://github.com/kittupriyatham/Titanic-Survival-in-R" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/Titanic-Survival-in-R" class="project-card" data-category="ai" target="_blank" rel="noopener noreferrer">
         <div class="project-icon icon-ml"><i class="fas fa-ship"></i></div>
         <div class="project-content">
           <h3>Titanic Survival Prediction</h3>
@@ -149,7 +169,7 @@
       </a>
 
       <!-- Card 7: Weather Forecasting Tool -->
-      <a href="https://github.com/kittupriyatham/WeatherForecastingTool" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/WeatherForecastingTool" class="project-card" data-category="web tools" target="_blank" rel="noopener noreferrer">
         <div class="project-icon icon-c"><i class="fas fa-cloud-sun-rain"></i></div>
         <div class="project-content">
           <h3>Weather Forecasting Tool</h3>
@@ -174,7 +194,7 @@
       </a> -->
 
       <!-- Card 9: Car Manufacturing Company -->
-      <a href="https://github.com/kittupriyatham/CarManufacturingCompany" class="project-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kittupriyatham/CarManufacturingCompany" class="project-card" data-category="tools" target="_blank" rel="noopener noreferrer">
         <div class="project-icon icon-c"><i class="fas fa-car-side"></i></div>
         <div class="project-content">
           <h3>Car Manufacturing Simulator</h3>
@@ -187,7 +207,7 @@
       </a>
 
       <!-- Card 10: 3D Modelling -->
-      <div class="project-card">
+      <div class="project-card" data-category="tools">
         <div class="project-icon icon-3d"><i class="fas fa-cogs"></i></div>
         <div class="project-content">
           <h3>3D Modelling</h3>
@@ -207,6 +227,29 @@
       </div>
     </div>
   </div>
+
+  <script>
+  (function() {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.projects-grid > .project-card');
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var filter = btn.getAttribute('data-filter');
+        cards.forEach(function(card) {
+          if (filter === 'all') {
+            card.style.display = '';
+          } else {
+            var cats = (card.getAttribute('data-category') || '').split(' ');
+            card.style.display = cats.indexOf(filter) !== -1 ? '' : 'none';
+          }
+        });
+      });
+    });
+  })();
+  </script>
+
   <footer>
     <p>All Rights Reserved</p>
     <p class="copyright">&copy; 2022 Potluri Krishna Priyatham</p>

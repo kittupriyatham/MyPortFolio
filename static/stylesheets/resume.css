@@ -49,13 +49,13 @@ body.dark-mode .resume-header p {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	padding: 10px 22px;
-	border-radius: 10px;
-	font-family: 'Poppins', sans-serif;
+	padding: 10px 24px;
+	border-radius: var(--radius-pill); /* Option 1 Pill Curve */
+	font-family: var(--font-sans);
 	font-size: 14px;
 	font-weight: 600;
 	text-decoration: none;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 	cursor: pointer;
 	border: 1px solid transparent;
 }
@@ -64,12 +64,13 @@ body.dark-mode .resume-header p {
 	background: #111;
 	color: #fff;
 	border-color: #111;
+	border-radius: var(--radius-pill);
 }
 
 .btn-primary:hover {
 	background: #333;
 	color: #fff;
-	transform: translateY(-3px);
+	transform: translateY(-2px);
 	box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -77,34 +78,45 @@ body.dark-mode .resume-header p {
 	background: transparent;
 	color: #111;
 	border-color: rgba(0,0,0,0.2);
+	border-radius: var(--radius-pill);
 }
 
 .btn-secondary:hover {
 	background: #f5f5f5;
 	color: #111;
-	transform: translateY(-3px);
+	transform: translateY(-2px);
 }
 
+/* Dark Mode: Option 3 Hollow Blue-Cyan Buttons */
 body.dark-mode .btn-primary {
-	background: rgba(0, 210, 255, 0.9);
-	color: #000;
-	border-color: transparent;
+	background: rgba(6, 182, 212, 0.05);
+	color: #22d3ee;
+	border: 1px solid rgba(6, 182, 212, 0.65);
+	border-radius: var(--radius-pill);
+	box-shadow: 0 0 14px rgba(6, 182, 212, 0.16);
 }
 
 body.dark-mode .btn-primary:hover {
-	background: #00d2ff;
-	box-shadow: 0 6px 20px rgba(0, 210, 255, 0.3);
+	background: rgba(6, 182, 212, 0.18);
+	color: #ffffff;
+	border-color: #06b6d4;
+	box-shadow: 0 0 24px rgba(6, 182, 212, 0.5);
+	transform: translateY(-2px);
 }
 
 body.dark-mode .btn-secondary {
-	color: #e0e0e0;
-	border-color: rgba(0, 210, 255, 0.3);
+	background: rgba(255, 255, 255, 0.03);
+	color: #e2e8f0;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: var(--radius-pill);
 }
 
 body.dark-mode .btn-secondary:hover {
-	background: rgba(0, 210, 255, 0.08);
-	border-color: rgba(0, 210, 255, 0.6);
-	color: #00d2ff;
+	background: rgba(6, 182, 212, 0.1);
+	border-color: rgba(6, 182, 212, 0.5);
+	color: #22d3ee;
+	box-shadow: 0 0 16px rgba(6, 182, 212, 0.25);
+	transform: translateY(-2px);
 }
 
 /* ---- Tab Pill Navigation ---- */
@@ -201,14 +213,17 @@ body.dark-mode .tab-pill.active {
 }
 
 body.dark-mode .resume-block {
-	background: #111418;
-	border: 1px solid rgba(0, 210, 255, 0.3);
-	box-shadow: 0 4px 15px rgba(0, 210, 255, 0.15), inset 0 0 15px rgba(0, 210, 255, 0.05);
+	background: rgba(15, 23, 42, 0.75);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: var(--radius-lg);
+	box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(99, 102, 241, 0.04);
 }
 
 body.dark-mode .resume-block:hover {
-	box-shadow: 0 8px 25px rgba(0, 210, 255, 0.25), inset 0 0 20px rgba(0, 210, 255, 0.08);
-	border-color: rgba(0, 210, 255, 0.6);
+	box-shadow: 0 20px 45px -10px rgba(6, 182, 212, 0.22), inset 0 0 25px rgba(6, 182, 212, 0.06);
+	border-color: rgba(6, 182, 212, 0.6);
 }
 
 .resume-frame {

@@ -1,4 +1,44 @@
-/*common entries for all devices*/
+/* ==========================================================================
+   Design Tokens & Unified Theme System
+   Option 2 Full-Width Nav (Bottom Line Only) + Option 3 Cyan Hollow Buttons + Option 1 Rounded Edges
+   ========================================================================== */
+
+:root {
+	/* Surface Colors */
+	--bg-base: #f8fafc;
+	--bg-surface: rgba(255, 255, 255, 0.85);
+	--bg-surface-elevated: #ffffff;
+	--bg-card: rgba(255, 255, 255, 0.82);
+	--bg-nav: rgba(255, 255, 255, 0.85);
+
+	/* Text Colors */
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--text-muted: #64748b;
+
+	/* Brand & Neon Accents */
+	--brand-cyan: #06b6d4;
+	--brand-cyan-glow: rgba(6, 182, 212, 0.45);
+	--brand-indigo: #6366f1;
+	--brand-gradient: linear-gradient(135deg, #6366f1, #06b6d4);
+
+	/* Borders & Dividers */
+	--border-subtle: rgba(0, 0, 0, 0.08);
+	--border-cyan: rgba(6, 182, 212, 0.65);
+	--border-hover: rgba(6, 182, 212, 0.4);
+
+	/* Radii (Option 1 Rounded Standard) */
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 20px;
+	--radius-pill: 9999px;
+
+	/* Fonts */
+	--font-sans: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Base Reset & Box Sizing */
 * {
 	margin: 0;
 	padding: 0;
@@ -14,12 +54,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-color: #f6f5f5;
-	font-family: poppins, serif;
-	background-image: url("../images/bg.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
+	background-color: var(--bg-base);
+	color: var(--text-primary);
+	font-family: var(--font-sans);
+	position: relative;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ul {
@@ -28,31 +67,111 @@ ul {
 
 a {
 	text-decoration: none;
+	color: inherit;
 }
 
-/* Navigation styles - Mobile First */
+/* ==========================================================================
+   Full-Width Top Navigation Bar (Option 2: Bottom Line Divider Only)
+   ========================================================================== */
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 66px;
+	width: 100%;
+	background-color: var(--bg-nav);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-bottom: 1px solid var(--border-subtle);
+	box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+	padding: 0 5%;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	transition: all 0.3s ease;
+}
+
+.logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-family: var(--font-sans);
+	font-weight: 700;
+	font-size: 18px;
+	letter-spacing: -0.01em;
+	color: var(--text-primary);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 65%;
+	transition: color 0.2s ease;
+}
+
+.logo-badge {
+	width: 34px;
+	height: 34px;
+	border-radius: 10px;
+	background: var(--brand-gradient);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 800;
+	font-size: 13px;
+	color: #ffffff;
+	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+	flex-shrink: 0;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+nav ul li a {
+	font-family: var(--font-sans);
+	color: var(--text-secondary);
+	font-size: 14px;
+	font-weight: 600;
+	padding: 8px 16px;
+	border-radius: var(--radius-pill);
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	display: inline-block;
+}
+
+nav a:hover,
+nav ul li a.active {
+	color: var(--brand-indigo);
+	background-color: rgba(99, 102, 241, 0.08);
+}
+
+/* Mobile Hamburger Menu */
 .menu-check-box {
 	display: none;
 }
 
 .menu-btn {
 	display: block;
-	font-size: 24px;
-	color: #505050;
+	font-size: 22px;
+	color: var(--text-secondary);
 	cursor: pointer;
 	padding: 10px;
+	transition: color 0.2s ease;
 }
 
 .menu-entries {
 	display: none;
 	position: absolute;
-	top: 60px;
+	top: 66px;
 	left: 0;
 	width: 100%;
-	background-color: #ffffff;
-	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+	background-color: var(--bg-surface-elevated);
+	border-bottom: 1px solid var(--border-subtle);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 	flex-direction: column;
 	z-index: 1000;
+	padding: 12px 0;
 }
 
 .menu-check-box:checked~.menu-entries {
@@ -62,91 +181,132 @@ a {
 .menu-entries li {
 	width: 100%;
 	text-align: center;
-	border-bottom: 1px solid #f0f0f0;
 }
 
 .menu-entries li a {
 	display: block;
-	padding: 15px 20px;
+	padding: 12px 20px;
 }
 
-nav {
-	display: flex;
-	justify-content: space-between;
+/* Quick Command Search Pill [Ctrl+K] */
+.nav-search-pill {
+	display: inline-flex;
 	align-items: center;
-	height: 60px;
-	background-color: #ffffff;
-	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-	padding: 0 5%;
-	position: sticky;
-	top: 0;
-	z-index: 999;
+	gap: 8px;
+	background: rgba(0, 0, 0, 0.04);
+	border: 1px solid var(--border-subtle);
+	padding: 6px 14px;
+	border-radius: var(--radius-pill);
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--text-secondary);
+	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
-nav ul {
-	display: flex;
+.nav-search-pill kbd {
+	background: rgba(0, 0, 0, 0.07);
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-family: var(--font-mono);
+	font-size: 10px;
+}
+
+.nav-search-pill:hover {
+	border-color: var(--brand-cyan);
+	background: rgba(6, 182, 212, 0.08);
+	color: #0891b2;
+}
+
+/* ==========================================================================
+   Button System: Option 3 Blue-Cyan Hollow Buttons with Option 1 Rounded Edges
+   ========================================================================== */
+
+.btn-cyan-hollow,
+.btn-hollow {
+	display: inline-flex;
 	align-items: center;
-	gap: 20px;
+	justify-content: center;
+	gap: 8px;
+	background: rgba(6, 182, 212, 0.04);
+	border: 1px solid rgba(6, 182, 212, 0.65);
+	color: #0891b2;
+	padding: 10px 24px;
+	border-radius: var(--radius-pill); /* Rounded pill edges as in Option 1 */
+	font-family: var(--font-sans);
+	font-size: 13.5px;
+	font-weight: 600;
+	text-decoration: none;
+	letter-spacing: 0.02em;
+	box-shadow: 0 0 12px rgba(6, 182, 212, 0.12);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
 }
 
-nav ul li a {
-	font-family: myriad pro regular, serif;
-	color: #505050;
-	font-size: 15px;
-	font-weight: 700;
-	padding: 8px 12px;
-	display: inline-block;
+.btn-cyan-hollow:hover,
+.btn-hollow:hover {
+	background: rgba(6, 182, 212, 0.15);
+	border-color: #06b6d4;
+	color: #0e7490;
+	box-shadow: 0 0 22px rgba(6, 182, 212, 0.35);
+	transform: translateY(-2px);
 }
 
-nav a:hover {
-	color: white;
-	background-color: grey;
-	border-radius: 5px;
+/* Support for generic .btn classes with modern rounding */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border-radius: var(--radius-pill);
+	font-family: var(--font-sans);
+	font-size: 13.5px;
+	font-weight: 600;
+	padding: 10px 24px;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+}
+
+/* ==========================================================================
+   Footer: Clean Modernized Baseline
+   ========================================================================== */
+
+footer {
+	width: 100%;
+	min-height: 64px;
+	display: flex;
+	background-color: var(--bg-nav);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border-top: 1px solid var(--border-subtle);
+	align-items: center;
+	justify-content: center;
+	margin-top: auto;
+	gap: 16px;
+	flex-wrap: wrap;
+	padding: 18px 24px;
+	position: relative;
+	z-index: 10;
 	transition: all 0.3s ease;
 }
 
-.logo {
-	font-family: RoadTest, serif;
-	color: #000000;
-	font-size: 18px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 60%;
-}
-
-/* Footer styles - Mobile First */
-footer {
-	width: 100%;
-	height: 60px;
-	display: flex;
-	background-color: #ffffff;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-	margin-top: auto;
-	gap: 10px;
-	flex-wrap: wrap;
-	padding: 0 20px;
-}
-
 footer p {
-	font-family: calibri, serif;
+	font-family: var(--font-sans);
 	text-align: center;
 	padding: 0;
 	margin: 0;
-	font-size: 14px;
+	font-size: 13.5px;
+	color: var(--text-secondary);
 	white-space: nowrap;
 }
 
-.footer {
-	content: "";
-}
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
 
-/* Tablet devices (768px and up) */
 @media only screen and (min-width: 768px) {
 	.logo {
-		font-size: 20px;
+		font-size: 19px;
 		max-width: 70%;
 	}
 
@@ -155,7 +315,6 @@ footer p {
 	}
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.menu-btn {
 		display: none;
@@ -168,8 +327,10 @@ footer p {
 		width: auto;
 		background-color: transparent;
 		box-shadow: none;
+		border-bottom: none;
 		align-items: center;
-		gap: 20px;
+		gap: 8px;
+		padding: 0;
 	}
 
 	.menu-entries li {
@@ -178,12 +339,12 @@ footer p {
 	}
 
 	.menu-entries li a {
-		padding: 8px 12px;
+		padding: 8px 16px;
 		margin: 0;
 	}
 
 	.logo {
-		font-size: 22px;
+		font-size: 20px;
 		max-width: none;
 	}
 
@@ -191,10 +352,10 @@ footer p {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: 20px;
+		gap: 8px;
 	}
 
 	footer {
-		gap: 20px;
+		gap: 24px;
 	}
 }

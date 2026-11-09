@@ -157,6 +157,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route('/ui-showroom')
+def ui_showroom():
+    return render_template("ui_showroom.html")
+
+
 @app.route('/skills')
 def skills():
     return render_template("skills.html")
