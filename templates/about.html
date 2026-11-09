@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="../static/stylesheets/darkmode.css">
     <link rel="stylesheet" href="../static/stylesheets/skills-visualization.css">
     <link rel="stylesheet" href="../static/stylesheets/chatbot.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.js"></script>
     <script src="../static/js/darkmode.js"></script>
     <script src="../static/js/skills-visualization.js"></script>
+    <script src="../static/js/quantum_avatar.js"></script>
 </head>
 
 <body>
@@ -30,7 +34,7 @@
             <li><a href="/achievements">Achievements</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/projects">Projects</a></li>
-            <!-- <li><a href="/blog">Blog</a></li> -->
+            <li><a href="https://blog.potluri-krishna-priyatham.tech" target="_blank" rel="noopener">Blog ↗</a></li>
             <li>
                 <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -41,10 +45,203 @@
 
     <div class="about-header">
         <h1>My Journey & Expertise</h1>
-        <p>From initial curiosity in digital logic to building production AI, Cloud, and Quantum systems.</p>
+        <p>From fundamental physics & digital logic to high-performance AI, distributed systems, and quantum technologies.</p>
     </div>
 
     <section class="about-page-wrapper">
+
+        <!-- 1. HERO PROFILE CARD WITH INTERACTIVE 3D QUANTUM AVATAR -->
+        <div class="about-hero-card">
+            <!-- 3D Gyroscope & Hologram Avatar Column -->
+            <div class="quantum-stage-wrapper">
+                <div class="quantum-stage" id="quantum-avatar-stage" title="Interactive 3D Avatar & Quantum Gyroscope — Drag to rotate avatar and gimbal rings">
+                    <div class="quantum-aura"></div>
+                    <div id="quantum-avatar-canvas" style="width: 100%; height: 100%; position: relative; z-index: 10; display: flex; align-items: center; justify-content: center;">
+                        <div id="avatar-poster" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 0; transition: opacity 0.7s;">
+                            <img src="../static/images/avatar.webp" alt="Potluri Krishna Priyatham" style="width: 175px; height: 175px; border-radius: 50%; object-fit: cover; opacity: 0.8; filter: blur(2px);">
+                        </div>
+                    </div>
+                </div>
+                <div class="quantum-badge select-none">
+                    <span class="quantum-badge-dot"></span>
+                    <span>3D Quantum Gyroscope</span>
+                    <span class="quantum-badge-hint">(drag to spin)</span>
+                </div>
+            </div>
+
+            <!-- Profile Narrative & Calls to Action -->
+            <div class="hero-content">
+                <div class="hero-pill">
+                    <span>🔬 PhD Scholar</span>
+                    <span>&bull;</span>
+                    <span>SRM AP University</span>
+                </div>
+                <h1 class="hero-name">Potluri Krishna Priyatham</h1>
+                <div class="hero-subtitle">(Kittu Priyatham) &bull; Quantum Technologies Researcher &amp; Software Engineer</div>
+                <p class="hero-bio">
+                    I am a PhD Scholar at <strong>SRM University-AP</strong> researching <strong>Quantum Technologies &amp; Quantum Computing</strong>. 
+                    My work bridges theoretical physics with cutting-edge engineering — spanning distributed architectures, 
+                    deep neural networks, robotics, and embedded IoT.
+                </p>
+
+                <!-- Primary CTAs -->
+                <div class="hero-cta-group">
+                    <a href="https://blog.potluri-krishna-priyatham.tech" target="_blank" rel="noopener" class="btn-primary-gradient">
+                        <i class="fas fa-feather-alt"></i>
+                        <span>Visit Blog &amp; Writings</span>
+                    </a>
+                    <a href="https://www.youtube.com/@potlurikrishnapriyatham" target="_blank" rel="noopener" class="btn-secondary-pill btn-youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube Channel</span>
+                    </a>
+                    <a href="https://github.com/kittupriyatham" target="_blank" rel="noopener" class="btn-secondary-pill">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/potluri-krishna-priyatham/" target="_blank" rel="noopener" class="btn-secondary-pill">
+                        <i class="fab fa-linkedin-in" style="color: #0077b5;"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="/resume" class="btn-secondary-pill">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Resume</span>
+                    </a>
+                </div>
+
+                <!-- Secondary Social Channels -->
+                <div class="hero-social-row">
+                    <a href="https://www.facebook.com/people/KrishnaPriyatham/61552106248522/" target="_blank" rel="noopener">Facebook Page</a>
+                    <span>&bull;</span>
+                    <a href="https://www.facebook.com/kittupriyatham" target="_blank" rel="noopener">Facebook Profile</a>
+                    <span>&bull;</span>
+                    <a href="https://x.com/kittupriyatham" target="_blank" rel="noopener">X (@kittupriyatham)</a>
+                    <span>&bull;</span>
+                    <a href="https://bsky.app/profile/kittupriyatham.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+                    <span>&bull;</span>
+                    <a href="https://www.instagram.com/kittupriyatham/" target="_blank" rel="noopener">Instagram</a>
+                    <span>&bull;</span>
+                    <a href="https://in.pinterest.com/kittupriyatham/" target="_blank" rel="noopener">Pinterest</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. SCHOLARLY & ACADEMIC PROFILES -->
+        <div class="scholarly-container">
+            <h2 class="section-title"><i class="fas fa-university"></i> Scholarly &amp; Academic Profiles</h2>
+            <div class="scholarly-grid">
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?user=LVCDDBYAAAAJ&hl=en" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-blue">GS</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">Google Scholar</div>
+                        <div class="scholarly-sub">Citations &amp; Publications</div>
+                    </div>
+                </a>
+
+                <!-- ORCID -->
+                <a href="https://orcid.org/0000-0001-8770-0058" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-green">iD</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">ORCID</div>
+                        <div class="scholarly-sub">0000-0001-8770-0058</div>
+                    </div>
+                </a>
+
+                <!-- IEEE Xplore -->
+                <a href="https://ieeexplore.ieee.org/author/97665626" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-sky">IEEE</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">IEEE Xplore</div>
+                        <div class="scholarly-sub">ID: 97665626</div>
+                    </div>
+                </a>
+
+                <!-- ResearchGate -->
+                <a href="https://www.researchgate.net/profile/Potluri-Krishna-Priyatham" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-teal">RG</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">ResearchGate</div>
+                        <div class="scholarly-sub">Publications &amp; Stats</div>
+                    </div>
+                </a>
+
+                <!-- Clarivate Web of Science -->
+                <a href="https://www.webofscience.com/wos/author/record/RJU-6786-2026" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-purple">WoS</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">Web of Science</div>
+                        <div class="scholarly-sub">RJU-6786-2026</div>
+                    </div>
+                </a>
+
+                <!-- OpenReview -->
+                <a href="https://openreview.net/profile?id=%7EPOTLURI_KRISHNA_PRIYATHAM1" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-red">OR</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">OpenReview</div>
+                        <div class="scholarly-sub">Peer Reviews</div>
+                    </div>
+                </a>
+
+                <!-- arXiv Preprints -->
+                <a href="https://arxiv.org/search/?searchtype=author&query=Priyatham%2C+P+K" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-amber">arXiv</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">arXiv Preprints</div>
+                        <div class="scholarly-sub">@kittupriyatham</div>
+                    </div>
+                </a>
+
+                <!-- Vidwan Database -->
+                <a href="https://vidwan.inflibnet.ac.in/profile/747100" target="_blank" rel="noopener" class="scholarly-card">
+                    <div class="scholarly-icon icon-emerald">VID</div>
+                    <div class="scholarly-info">
+                        <div class="scholarly-name">Vidwan Database</div>
+                        <div class="scholarly-sub">ID: 747100</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. RESEARCH AREAS & ENGINEERING FOCUS -->
+        <div class="domains-container">
+            <h2 class="section-title"><i class="fas fa-microchip"></i> Research Areas &amp; Engineering Focus</h2>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-icon">⚛️</div>
+                    <div class="domain-title">Quantum Technologies &amp; Computing</div>
+                    <div class="domain-desc">
+                        Investigating quantum circuit architectures, qubit manipulation frameworks, quantum algorithms, and hybrid classical-quantum models at SRM AP University.
+                    </div>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-icon">🧠</div>
+                    <div class="domain-title">AI, Deep Learning &amp; Data Science</div>
+                    <div class="domain-desc">
+                        Applied machine learning, deep neural architectures, LLM automation agents, generative pipelines, and end-to-end data processing workflows.
+                    </div>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-icon">⚙️</div>
+                    <div class="domain-title">Software Engineering &amp; Distributed Systems</div>
+                    <div class="domain-desc">
+                        Modern full-stack web applications, resilient POSSE syndication networks, API design, background worker task queues, and cloud platforms.
+                    </div>
+                </div>
+
+                <div class="domain-card">
+                    <div class="domain-icon">🤖</div>
+                    <div class="domain-title">Robotics, IoT &amp; Embedded Hardware</div>
+                    <div class="domain-desc">
+                        Microcontroller integration, sensor telemetry, autonomous robotics prototypes, 3D modeling/printing, and hardware-software communication protocols.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. TECHNOLOGY CAREER TIMELINE -->
         <div class="timeline-container">
             <h2 class="section-title"><i class="fas fa-history"></i> Technology Career Timeline</h2>
             <div class="timeline">
@@ -120,6 +317,7 @@
             </div>
         </div>
 
+        <!-- 5. SKILLS NETWORK VISUALIZER -->
         <div class="skills-card-container">
             <h2 class="section-title"><i class="fas fa-project-diagram"></i> Skills Network</h2>
             <p class="skills-intro">Explore when each skill entered my toolkit. Drag the year control to update the network.</p>
@@ -139,9 +337,24 @@
 
     <footer>
         <p>All Rights Reserved</p>
-        <p class="copyright">&copy; 2022 Potluri Krishna Priyatham</p>
+        <p class="copyright">&copy; 2026 Potluri Krishna Priyatham</p>
     </footer>
+
     {% include '_chatbot.html' %}
+
+    <!-- Initialize 3D Quantum Gyroscope Avatar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.initQuantumAvatar) {
+                window.initQuantumAvatar({
+                    stageId: 'quantum-avatar-stage',
+                    canvasContainerId: 'quantum-avatar-canvas',
+                    posterId: 'avatar-poster',
+                    modelUrl: '/static/models/avatar_holo_opt.glb'
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
