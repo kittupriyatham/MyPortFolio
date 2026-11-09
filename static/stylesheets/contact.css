@@ -166,10 +166,14 @@ body.dark-mode .contact-card:hover {
 .icon-linkedin { color: #0077b5; }
 .icon-github { color: #333; }
 body.dark-mode .icon-github { color: #fff; }
+.icon-youtube { color: #FF0000; }
 .icon-whatsapp { color: #25D366; }
 .icon-facebook { color: #1877F2; }
 .icon-instagram { color: #E1306C; }
-.icon-twitter { color: #1DA1F2; }
+.icon-twitter { color: #111; }
+body.dark-mode .icon-twitter { color: #fff; }
+.icon-bluesky { color: #0285FF; }
+.icon-pinterest { color: #E60023; }
 
 /* Contact Content Settings */
 .contact-info {
