@@ -48,6 +48,8 @@
 html,
 body {
 	min-height: 100vh;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -95,17 +97,25 @@ nav {
 .logo {
 	display: inline-flex;
 	align-items: center;
-	gap: 12px;
+	gap: 10px;
 	font-family: var(--font-sans);
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 17px;
 	letter-spacing: -0.01em;
 	color: var(--text-primary);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	max-width: 65%;
+	max-width: calc(100% - 56px);
+	min-width: 0;
 	transition: color 0.2s ease;
+}
+
+.logo span:not(.logo-badge) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
 }
 
 .logo-badge {
@@ -152,12 +162,33 @@ nav ul li a.active {
 }
 
 .menu-btn {
-	display: block;
-	font-size: 22px;
-	color: var(--text-secondary);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	min-width: 40px;
+	min-height: 40px;
+	font-size: 20px;
+	color: var(--text-primary);
+	background: rgba(99, 102, 241, 0.08);
+	border: 1px solid rgba(99, 102, 241, 0.25);
+	border-radius: 10px;
 	cursor: pointer;
-	padding: 10px;
-	transition: color 0.2s ease;
+	padding: 0;
+	flex-shrink: 0;
+	transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+	border-color: var(--brand-cyan);
+	color: var(--brand-indigo);
+}
+
+.menu-btn svg {
+	width: 22px;
+	height: 22px;
+	stroke: currentColor;
 }
 
 .menu-entries {
@@ -181,11 +212,16 @@ nav ul li a.active {
 .menu-entries li {
 	width: 100%;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 0;
 }
 
 .menu-entries li a {
 	display: block;
-	padding: 12px 20px;
+	width: 100%;
+	padding: 10px 20px;
 }
 
 /* Quick Command Search Pill [Ctrl+K] */
@@ -317,7 +353,7 @@ footer p {
 
 @media only screen and (min-width: 992px) {
 	.menu-btn {
-		display: none;
+		display: none !important;
 	}
 
 	.menu-entries {
@@ -336,9 +372,11 @@ footer p {
 	.menu-entries li {
 		width: auto;
 		border-bottom: none;
+		padding: 0;
 	}
 
 	.menu-entries li a {
+		width: auto;
 		padding: 8px 16px;
 		margin: 0;
 	}
