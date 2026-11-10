@@ -28,6 +28,19 @@
   --box-shadow-dark: rgba(0, 0, 0, 0.6);
   --border-dark: rgba(255, 255, 255, 0.08);
 
+  /* User Confirmed Night Mode (Pure AMOLED / Pitch Black) Tokens */
+  --bg-color-night: #000000;                   /* Pure Pitch Black */
+  --text-color-night: #ffffff;
+  --nav-bg-night: rgba(0, 0, 0, 0.94);         /* Ultra-Deep AMOLED Frosted */
+  --nav-text-night: #cbd5e1;
+  --container-bg-night: rgba(6, 6, 8, 0.95);   /* Stark AMOLED Black Surface */
+  --nav-hover-bg-night: rgba(6, 182, 212, 0.15);
+  --nav-hover-text-night: #22d3ee;
+  --footer-bg-night: #000000;
+  --footer-text-night: #94a3b8;
+  --box-shadow-night: 0 10px 30px rgba(0, 0, 0, 0.95);
+  --border-night: rgba(255, 255, 255, 0.14);
+
   /* Defaults */
   --bg-color: var(--bg-color-light);
   --text-color: var(--text-color-light);
@@ -56,6 +69,24 @@ body.dark-mode {
 
   background-color: var(--bg-color-dark) !important;
   color: var(--text-color-dark) !important;
+  background-image: none !important;
+}
+
+/* Night Mode: Pure OLED/AMOLED Pitch Black */
+body.night-mode {
+  --bg-color: var(--bg-color-night);
+  --text-color: var(--text-color-night);
+  --nav-bg: var(--nav-bg-night);
+  --nav-text: var(--nav-text-night);
+  --nav-hover-bg: var(--nav-hover-bg-night);
+  --nav-hover-text: var(--nav-hover-text-night);
+  --container-bg: var(--container-bg-night);
+  --footer-bg: var(--footer-bg-night);
+  --footer-text: var(--footer-text-night);
+  --box-shadow: var(--box-shadow-night);
+
+  background-color: #000000 !important;
+  color: #ffffff !important;
   background-image: none !important;
 }
 
@@ -127,6 +158,21 @@ body.dark-mode .dark-mode-toggle:hover {
   color: #030712 !important;
   border-color: transparent;
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
+body.night-mode .dark-mode-toggle {
+  background: linear-gradient(135deg, #09090b 0%, #000000 100%);
+  border: 1px solid rgba(6, 182, 212, 0.7);
+  color: #22d3ee !important;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+}
+
+body.night-mode .dark-mode-toggle:hover {
+  transform: translateY(-1px) scale(1.05);
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+  color: #000000 !important;
+  border-color: transparent;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.8);
 }
 
 nav ul li:last-child,
@@ -231,4 +277,87 @@ body.dark-mode footer {
 
 body.dark-mode footer p {
   color: var(--footer-text-dark) !important;
+}
+
+/* ==========================================================================
+   Night Mode (Pure AMOLED / Pitch Black) UI Overrides
+   ========================================================================== */
+
+body.night-mode nav {
+  background-color: var(--nav-bg-night) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85) !important;
+}
+
+body.night-mode .menu-entries {
+  background-color: rgba(5, 5, 8, 0.98) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9) !important;
+}
+
+body.night-mode footer {
+  background-color: var(--footer-bg-night) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.85);
+}
+
+body.night-mode footer p {
+  color: var(--footer-text-night) !important;
+}
+
+body.night-mode .nav-search-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+}
+
+body.night-mode .nav-search-pill:hover {
+  border-color: #06b6d4;
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+}
+
+/* AMOLED Pitch Black Surface Overrides for Cards & Sections */
+body.night-mode .profile-card,
+body.night-mode .project-card,
+body.night-mode .bento-item,
+body.night-mode .skills-card-container,
+body.night-mode .timeline-content,
+body.night-mode .contact-card,
+body.night-mode .contact-info-panel,
+body.night-mode .contact-form-panel,
+body.night-mode .creo-card,
+body.night-mode .resume-section,
+body.night-mode .download-card,
+body.night-mode .step-card,
+body.night-mode .feature-card,
+body.night-mode .stat-card,
+body.night-mode .preview-card,
+body.night-mode .about-card,
+body.night-mode .achievement-card,
+body.night-mode .phone-mockup,
+body.night-mode .ambient-glass {
+  background: rgba(5, 5, 8, 0.96) !important;
+  background-color: #050508 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95) !important;
+}
+
+body.night-mode .project-card:hover,
+body.night-mode .bento-item:hover,
+body.night-mode .skills-card-container:hover,
+body.night-mode .contact-card:hover,
+body.night-mode .preview-card:hover,
+body.night-mode .about-card:hover,
+body.night-mode .achievement-card:hover {
+  border-color: rgba(6, 182, 212, 0.65) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.98), 0 0 24px rgba(6, 182, 212, 0.25) !important;
+}
+
+body.night-mode .timeline::after {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+body.night-mode .timeline-container:hover {
+  border-color: rgba(6, 182, 212, 0.5) !important;
 }

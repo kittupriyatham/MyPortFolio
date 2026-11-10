@@ -88,6 +88,14 @@
       body:not(.dark-mode) .aurora-glow-blob {
         opacity: 0.08;
       }
+      body.night-mode .grid-dot-overlay,
+      html.night .grid-dot-overlay {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      }
+      body.night-mode .aurora-glow-blob,
+      html.night .aurora-glow-blob {
+        opacity: 0.12;
+      }
       @keyframes floatAuroraGlow {
         0% { transform: translate(0, 0) scale(1); }
         50% { transform: translate(30px, -25px) scale(1.06); }
@@ -191,9 +199,10 @@
       if (!isRunning) return;
       ctx.clearRect(0, 0, width, height);
 
-      var isDark = document.body.classList.contains('dark-mode') || document.documentElement.classList.contains('dark');
-      var cyanBase = isDark ? 'rgba(6, 182, 212, ' : 'rgba(14, 165, 233, ';
-      var indigoBase = isDark ? 'rgba(99, 102, 241, ' : 'rgba(79, 70, 229, ';
+      var isNight = (document.body && document.body.classList.contains('night-mode')) || document.documentElement.classList.contains('night');
+      var isDark = isNight || (document.body && document.body.classList.contains('dark-mode')) || document.documentElement.classList.contains('dark');
+      var cyanBase = isNight ? 'rgba(34, 211, 238, ' : (isDark ? 'rgba(6, 182, 212, ' : 'rgba(14, 165, 233, ');
+      var indigoBase = isNight ? 'rgba(129, 140, 248, ' : (isDark ? 'rgba(99, 102, 241, ' : 'rgba(79, 70, 229, ');
 
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];

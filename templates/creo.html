@@ -120,10 +120,11 @@
         });
       }
 
-      /* ---- Background (dark-mode aware) ---- */
+      /* ---- Background (dark-mode & night-mode aware) ---- */
       function updateBg() {
+        const night = document.body.classList.contains('night-mode');
         const dark = document.body.classList.contains('dark-mode');
-        renderer.setClearColor(dark ? 0x111418 : 0xf4f4f6, 1);
+        renderer.setClearColor(night ? 0x000000 : (dark ? 0x111418 : 0xf4f4f6), 1);
       }
       updateBg();
 
